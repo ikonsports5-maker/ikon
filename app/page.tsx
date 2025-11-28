@@ -183,7 +183,7 @@ const App = () => {
 
             <div className="container mx-auto px-4 relative z-20">
                  <h3 className="text-[#C8D653] font-bold text-lg md:text-3xl uppercase tracking-wider mb-2 md:mb-0 max-w-[80%] md:max-w-2xl text-left shadow-black drop-shadow-sm leading-relaxed">
-                    Rajasthan - KSA - Kuwait - Bahrain - Oman - Jordan
+                    Serving in Rajasthan, Gujarat, Madhya Pradesh, and more
                  </h3>
             </div>
         </div>
