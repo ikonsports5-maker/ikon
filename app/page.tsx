@@ -66,7 +66,7 @@ const App = () => {
       </header>
 
       <div className="w-full h-screen hidden md:block object-cover">
-        <YouTubeLoop />
+       <img src="/bg-2.jpeg" className='w-screen' alt="" />
       </div>
 
       {/* --- HERO SECTION --- */}
