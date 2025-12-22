@@ -71,68 +71,66 @@ const App = () => {
       {/* --- HEADER --- */}
      
     {/* --- HEADER --- */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-2">
-          <div className="flex items-center justify-between">
-            
-            {/* 1. Desktop Left Navigation */}
-            <nav className="hidden md:flex flex-1 items-center space-x-8 font-semibold text-xs lg:text-sm text-[#335495]">
-              <a href="#" className="hover:text-[#C8D653] transition tracking-widest">HOME</a>
-              <a href="#" className="hover:text-[#C8D653] transition tracking-widest">ABOUT US</a>
-              <a href="#" className="hover:text-[#C8D653] transition tracking-widest">BLOGS</a>
-            </nav>
+   <header className="bg-white shadow-sm sticky top-0 z-50">
+  <div className="container mx-auto px-4 py-2">
+    <div className="flex items-center justify-between">
+      
+      {/* 1. Desktop Left Navigation - Changed flex-1 to justify-end */}
+      <nav className="hidden md:flex flex-1 items-center justify-end space-x-8 font-semibold text-xs lg:text-sm text-[#335495]">
+        <a href="#" className="hover:text-[#C8D653] transition tracking-widest">HOME</a>
+        <a href="#" className="hover:text-[#C8D653] transition tracking-widest">ABOUT US</a>
+        <a href="#" className="hover:text-[#C8D653] transition tracking-widest">BLOGS</a>
+      </nav>
 
-            {/* 2. Centered Logo */}
-            <div className="flex-shrink-0 mx-4 md:mx-8">
-              <a href="/">
-                <img 
-                  src="/logo.jpg" 
-                  alt="Ikon Sports" 
-                  className="w-14 h-14 md:w-16 md:h-16 object-contain hover:scale-105 transition-transform duration-300" 
-                />
-              </a>
-            </div>
+      {/* 2. Centered Logo - Controlled by mx (margins) */}
+      <div className="flex-shrink-0 mx-4 md:mx-20"> {/* Increased margin slightly for clear but tight breathing room */}
+        <a href="/">
+          <img 
+            src="/logo.jpg" 
+            alt="Ikon Sports" 
+            className="w-14 h-14 md:w-16 md:h-16 object-contain hover:scale-105 transition-transform duration-300" 
+          />
+        </a>
+      </div>
 
-            {/* 3. Desktop Right Navigation */}
-            <nav className="hidden md:flex flex-1 items-center justify-end space-x-8 font-semibold text-xs lg:text-sm text-[#335495]">
-              <a href="#" className="hover:text-[#C8D653] transition tracking-widest">SERVICES</a>
-              <a href="#" className="hover:text-[#C8D653] transition tracking-widest">PROJECTS</a>
-              <a href="#" className="hover:text-[#C8D653] transition tracking-widest">CONTACT</a>
-            </nav>
+      {/* 3. Desktop Right Navigation - Changed flex-1 to justify-start */}
+      <nav className="hidden md:flex flex-1 items-center justify-start space-x-8 font-semibold text-xs lg:text-sm text-[#335495]">
+        <a href="#" className="hover:text-[#C8D653] transition tracking-widest">SERVICES</a>
+        <a href="#" className="hover:text-[#C8D653] transition tracking-widest">PROJECTS</a>
+        <a href="#" className="hover:text-[#C8D653] transition tracking-widest">CONTACT</a>
+      </nav>
 
-            {/* --- MOBILE: PHONE + MENU ICON GROUP --- */}
-            <div className="flex items-center space-x-4 md:hidden">
-              {/* Clickable Mobile Number */}
-              <a 
-                href="tel:+917737022715" 
-                className="flex items-center space-x-1 text-[#335495] font-bold text-xs bg-gray-50 px-3 py-2 rounded-full border border-gray-100"
-              >
-                <Phone size={14} className="text-[#C8D653]" fill="#C8D653" />
-                <span>+91 77370 22715</span>
-              </a>
+      {/* Mobile Menu Button - Kept separate from desktop logic */}
+      <div className="flex items-center space-x-4 md:hidden">
+        <a 
+          href="tel:+917737022715" 
+          className="flex items-center space-x-1 text-[#335495] font-bold text-xs bg-gray-50 px-3 py-2 rounded-full border border-gray-100"
+        >
+          <Phone size={14} className="text-[#C8D653]" fill="#C8D653" />
+          <span>+91 77370 22715</span>
+        </a>
 
-              {/* Mobile Menu Button */}
-              <button 
-                className="text-[#335495] p-1 transition" 
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-              </button>
-            </div>
-          </div>
-        </div>
+        <button 
+          className="text-[#335495] p-1 transition" 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+    </div>
+  </div>
 
-        {/* Mobile Nav Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t p-6 flex flex-col space-y-6 font-bold text-[#335495] shadow-2xl absolute w-full z-50 animate-in slide-in-from-top duration-300">
-            <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>HOME</a>
-            <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>ABOUT US</a>
-            <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>SERVICES</a>
-            <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>PROJECTS</a>
-            <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>CONTACT</a>
-          </div>
-        )}
-      </header>
+  {/* Mobile Nav Menu */}
+  {isMenuOpen && (
+    <div className="md:hidden bg-white border-t p-6 flex flex-col space-y-6 font-bold text-[#335495] shadow-2xl absolute w-full z-50 animate-in slide-in-from-top duration-300">
+      <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>HOME</a>
+      <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>ABOUT US</a>
+      <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>SERVICES</a>
+      <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>PROJECTS</a>
+      <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>CONTACT</a>
+    </div>
+  )}
+</header>
 
 
      
