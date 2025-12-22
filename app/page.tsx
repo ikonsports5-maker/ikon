@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 import YouTubeLoop from '@/component/YoutubeLoop';
 
+import SportsInfrastructureHero from '@/component/NewHero';
+
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
@@ -78,6 +80,9 @@ const App = () => {
           </div>
         )}
       </header>
+
+
+     
 
       {/* <div className="w-full h-screen hidden md:block object-cover">
        <img src="/bg-2.jpeg" className='w-screen' alt="" />
@@ -172,76 +177,7 @@ const App = () => {
       </section>
 
       {/* --- SERVICES / MAP SECTION --- */}
-      <section className="relative w-full bg-white">
-        <div className="relative bg-[#335495] pt-16 md:pt-24 pb-32 md:pb-48 overflow-visible">
-            <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none mix-blend-screen">
-                 <img 
-                    src="/bg-1.jpeg" 
-                    alt="Map Background" 
-                    className="w-full h-full object-cover grayscale"
-                />
-            </div>
-            
-            <div className="absolute right-0 bottom-0 z-10 w-[200px] md:w-[500px] h-[250px] md:h-[500px] pointer-events-none overflow-hidden flex items-end justify-end opacity-80 md:opacity-100">
-                <img 
-                    src="/padel-guy.png" 
-                    alt="Sports Player" 
-                    className="object-cover w-full h-full md:object-contain object-right-bottom mask-image-gradient"
-                    style={{ 
-                        maskImage: 'linear-gradient(to left, black 70%, transparent 100%)',
-                        WebkitMaskImage: 'linear-gradient(to left, black 70%, transparent 100%)'
-                    }} 
-                />
-            </div>
-
-            <div className="container mx-auto px-4 relative z-20">
-                 <h3 className="text-[#C8D653] font-bold text-lg md:text-3xl uppercase tracking-wider mb-2 md:mb-0 max-w-[80%] md:max-w-2xl text-left shadow-black drop-shadow-sm leading-relaxed">
-                    Pan-India Execution: Serving Rajasthan, Gujarat, Madhya Pradesh, Delhi NCR, Maharashtra, Karnataka, Telangana, Tamil Nadu & More
-                 </h3>
-            </div>
-        </div>
-
-        <div className="relative z-30 -mt-20 md:-mt-24 container mx-auto px-4 pb-12 md:pb-20">
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                {/* Card 1 */}
-                <div className="bg-white p-6 md:p-8 shadow-xl flex flex-row items-start space-x-4 md:space-x-5 min-h-[140px] md:min-h-[160px] rounded-sm">
-                    <div className="text-[#C8D653] shrink-0 pt-1">
-                        <Headset size={36} className="md:w-10 md:h-10" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-[#335495] uppercase mb-1 text-sm">Complete Turnkey Execution</h4>
-                        <p className="text-gray-500 text-xs leading-relaxed">Single-point responsibility from design to delivery.</p>
-                    </div>
-                </div>
-                 {/* Card 2 */}
-                 <div className="bg-white p-6 md:p-8 shadow-xl flex flex-row items-start space-x-4 md:space-x-5 min-h-[140px] md:min-h-[160px] rounded-sm">
-                    <div className="text-[#C8D653] shrink-0 pt-1">
-                        <Atom size={36} className="md:w-10 md:h-10" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-[#335495] uppercase mb-1 text-sm">Multi-Sport Expertise</h4>
-                        <p className="text-gray-500 text-xs leading-relaxed">Pickleball, Tennis, Basketball, Badminton, Turf and Sports Flooring.</p>
-                    </div>
-                </div>
-                 {/* Card 3 */}
-                 <div className="bg-white p-6 md:p-8 shadow-xl flex flex-row items-start space-x-4 md:space-x-5 min-h-[140px] md:min-h-[160px] rounded-sm">
-                    <div className="text-[#C8D653] shrink-0 pt-1">
-                         <ThumbsUp size={36} className="md:w-10 md:h-10" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-[#335495] uppercase mb-1 text-sm">Quality-Driven Construction</h4>
-                        <p className="text-gray-500 text-xs leading-relaxed">Long-lasting surfaces, proper drainage and professional finishing.</p>
-                    </div>
-                </div>
-             </div>
-        </div>
-        
-        <div className="absolute bottom-0 left-0 w-full h-[60%] -z-10 overflow-hidden opacity-10 pointer-events-none">
-             <div className="w-full h-full" style={{
-                 backgroundImage: `repeating-linear-gradient(45deg, #eee 0px, #eee 1px, transparent 1px, transparent 20px), repeating-linear-gradient(-45deg, #eee 0px, #eee 1px, transparent 1px, transparent 20px)`
-             }}></div>
-        </div>
-      </section>
+     <SportsInfrastructureHero />
 
       {/* --- STATS COUNTER SECTION --- */}
       <section className="py-12 md:py-20 relative" style={{ backgroundImage: `url('/waves-line.jpg')` }}>
