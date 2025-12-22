@@ -147,13 +147,7 @@ const App = () => {
         </div>
 
         {/* --- BOTTOM DECORATIVE STRIP --- */}
-        <div 
-            className="absolute bottom-0 left-0 w-full h-16 md:h-24 z-10 pointer-events-none hidden md:block"
-            style={{
-                background: 'linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)',
-                clipPath: 'polygon(0 40%, 100% 0, 100% 100%, 0% 100%)'
-            }}
-        ></div>
+       
         
         {/* --- BOTTOM RIGHT CAPTION & INDICATORS --- */}
         <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-20 text-right text-white drop-shadow-md">
@@ -180,7 +174,7 @@ const App = () => {
               <div className="inline-block bg-[#C8D653] text-[#335495] px-4 py-1 text-xs font-bold uppercase tracking-widest mb-4">
                 India's No. 1
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#335495] uppercase leading-[0.9] tracking-tighter">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl  text-[#335495] uppercase font-black">
                 Sports Courts <br/> Infrastructure <br/> Company
               </h1>
               <div className="h-2 w-24 bg-[#C8D653] mt-8"></div>
@@ -205,47 +199,87 @@ const App = () => {
         </div>
       </section>
 
-      {/* --- ABOUT US SECTION --- */}
-      <section className="py-12 md:py-20 bg-white">
-        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-black text-[#335495] uppercase mb-4 md:mb-6 flex items-center">
-              About Us
-              <div className="h-1 w-12 md:w-20 bg-[#C8D653] ml-4"></div>
-            </h2>
-            <p className="text-gray-600 mb-4 leading-relaxed text-sm md:text-base">
-              IKON is a Pan-India sports courts infrastructure company with over 7 years of experience in designing and executing professional sports facilities.
-            </p>
-            <p className="text-gray-600 mb-4 leading-relaxed text-sm md:text-base">
-              We deliver complete turnkey solutions including planning, civil work, flooring systems, accessories and final handover.
-            </p>
-            <p className="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">
-              Our courts are built for durability, safety and consistent play performance, using proven materials and industry-standard construction practices.
-            </p>
-            <button className="bg-[#335495] text-white px-6 py-2 text-xs font-bold uppercase hover:bg-blue-900 transition">
-              Read More
-            </button>
-          </div>
-          <div className="relative mt-4 md:mt-0">
-            <img 
-              src="/bg-2.jpeg" 
-              alt="IKON Sports Construction" 
-              className="w-full hidden lg:block h-56 md:h-80 object-cover shadow-xl rounded-sm"
-            />
-           <div className="w-full block lg:hidden">
-            <YouTubeLoop />
-           </div>
-            <div onClick={() => window.open('https://www.youtube.com/watch?v=RCwzOp-sujE', '_blank')} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group">
-              <div className="bg-[#C8D653] group-hover:bg-[#b9c745] w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center transition shadow-lg animate-pulse">
-                <Play fill="white" className="text-white ml-1" size={28} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    
 
       {/* --- SERVICES / MAP SECTION --- */}
      <SportsInfrastructureHero />
+
+
+      {/* --- ABOUT US SECTION (Image Left, Content Right) --- */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            {/* Left: Media Container */}
+            <div className="order-1">
+              <div className="relative rounded-sm overflow-hidden shadow-2xl bg-gray-100 group">
+                {/* Main Image */}
+                <img 
+                  src="/bg-2.jpeg" 
+                  alt="IKON Sports Construction" 
+                  className="w-full h-64 md:h-[450px] object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+
+                {/* Video Play Button Overlay */}
+                <div 
+                  onClick={() => window.open('https://www.youtube.com/watch?v=RCwzOp-sujE', '_blank')} 
+                  className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/10 group-hover:bg-black/20 transition-colors duration-300"
+                >
+                  <div className="bg-[#C8D653] text-white w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-xl">
+                    <Play fill="currentColor" className="ml-1" size={32} />
+                  </div>
+                </div>
+
+                {/* Decorative Accent (Bottom Left) */}
+                <div className="absolute bottom-0 left-0 w-2 h-24 bg-[#C8D653]"></div>
+              </div>
+            </div>
+
+            {/* Right: Text Content */}
+            <div className="order-2">
+              <div className="flex items-center mb-6">
+                <div className="h-1.5 w-16 bg-[#C8D653] mr-4"></div>
+                <h2 className="text-3xl md:text-4xl font-black text-[#335495] uppercase tracking-tight">
+                  About Us
+                </h2>
+              </div>
+
+              <div className="space-y-6 text-gray-600">
+                <p className="text-xl font-bold text-[#335495] leading-tight">
+                  IKON is a Pan-India sports courts infrastructure company with over 7 years of experience.
+                </p>
+                
+                <p className="text-sm md:text-base leading-relaxed">
+                  We specialize in designing and executing professional sports facilities, delivering complete turnkey solutions that include planning, civil work, flooring systems, and accessories.
+                </p>
+                
+                <p className="text-sm md:text-base leading-relaxed">
+                  Our courts are built for durability, safety, and consistent play performance. We use only proven materials and industry-standard construction practices to ensure your facility remains at peak performance for years.
+                </p>
+
+                <div className="flex items-center space-x-4 pt-4">
+                   <div className="text-[#335495]">
+                      <div className="text-2xl font-black leading-none">400+</div>
+                      <div className="text-[10px] uppercase font-bold tracking-tighter opacity-70">Courts Delivered</div>
+                   </div>
+                   <div className="h-8 w-px bg-gray-200"></div>
+                   <div className="text-[#335495]">
+                      <div className="text-2xl font-black leading-none">Pan-India</div>
+                      <div className="text-[10px] uppercase font-bold tracking-tighter opacity-70">Turnkey Execution</div>
+                   </div>
+                </div>
+              </div>
+
+              <div className="mt-10">
+                <button className="bg-[#335495] text-white px-10 py-4 text-xs font-bold uppercase hover:bg-blue-900 transition-all shadow-lg rounded-sm tracking-widest">
+                  Read More
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* --- STATS COUNTER SECTION --- */}
       <section className="py-12 md:py-20 relative" style={{ backgroundImage: `url('/waves-line.jpg')` }}>
