@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { 
   Menu, X, Search, Facebook, Instagram, Linkedin, 
   Headset, Atom, ThumbsUp, ChevronRight, Play 
@@ -28,6 +28,22 @@ const App = () => {
     textLight: '#f5f5f5'
   };
 
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const heroImages = [
+    "/bg-2.jpeg",
+    "/bg-1.jpeg", 
+    "/bg-3.jpeg"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // Changes every 5 seconds
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="font-sans text-gray-800 overflow-x-hidden w-full">
 
@@ -49,34 +65,54 @@ const App = () => {
       </span>
     </a>
       {/* --- HEADER --- */}
+     
       <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <div className="flex items-center">
-             <div className="flex flex-col leading-none">
-               <img src="/logo.jpg" alt="Ikon Sports" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-             </div>
+        <div className="container mx-auto px-4 py-2">
+          <div className="flex items-center justify-between">
+            
+            {/* 1. Desktop Left Navigation */}
+            <nav className="hidden md:flex flex-1 items-center space-x-8 font-semibold text-xs lg:text-sm text-[#335495]">
+              <a href="#" className="hover:text-[#C8D653] transition tracking-widest">HOME</a>
+              <a href="#" className="hover:text-[#C8D653] transition tracking-widest">ABOUT US</a>
+              <a href="#" className="hover:text-[#C8D653] transition tracking-widest">BLOGS</a>
+            </nav>
+
+            {/* 2. Centered Logo */}
+            <div className="flex-shrink-0 mx-4 md:mx-8">
+              <a href="/">
+                <img 
+                  src="/logo.jpg" 
+                  alt="Ikon Sports" 
+                  className="w-14 h-14 md:w-16 md:h-16 object-contain hover:scale-105 transition-transform duration-300" 
+                />
+              </a>
+            </div>
+
+            {/* 3. Desktop Right Navigation */}
+            <nav className="hidden md:flex flex-1 items-center justify-end space-x-8 font-semibold text-xs lg:text-sm text-[#335495]">
+              <a href="#" className="hover:text-[#C8D653] transition tracking-widest">SERVICES</a>
+              <a href="#" className="hover:text-[#C8D653] transition tracking-widest">PROJECTS</a>
+              <a href="#" className="hover:text-[#C8D653] transition tracking-widest">CONTACT</a>
+            </nav>
+
+            {/* Mobile Menu Button (Only visible on mobile) */}
+            <button 
+              className="md:hidden text-[#335495] p-2 hover:bg-gray-50 rounded-lg transition" 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
           </div>
-
-          <nav className="hidden md:flex space-x-6 font-semibold text-sm text-[#335495]">
-            <a href="#" className="hover:text-[#C8D653] transition">HOME</a>
-            <a href="#" className="hover:text-[#C8D653] transition">ABOUT US</a>
-            <a href="#" className="hover:text-[#C8D653] transition">SERVICES</a>
-            <a href="#" className="hover:text-[#C8D653] transition">PROJECTS</a>
-            <a href="#" className="hover:text-[#C8D653] transition">CONTACT</a>
-          </nav>
-
-          <button className="md:hidden text-[#335495]" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
         </div>
 
+        {/* Mobile Nav Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t p-4 flex flex-col space-y-4 font-semibold text-[#335495] shadow-lg absolute w-full z-50">
-            <a href="#" className="hover:text-[#C8D653] block" onClick={() => setIsMenuOpen(false)}>HOME</a>
-            <a href="#" className="hover:text-[#C8D653] block" onClick={() => setIsMenuOpen(false)}>ABOUT US</a>
-            <a href="#" className="hover:text-[#C8D653] block" onClick={() => setIsMenuOpen(false)}>SERVICES</a>
-            <a href="#" className="hover:text-[#C8D653] block" onClick={() => setIsMenuOpen(false)}>PROJECTS</a>
-            <a href="#" className="hover:text-[#C8D653] block" onClick={() => setIsMenuOpen(false)}>CONTACT</a>
+          <div className="md:hidden bg-white border-t p-6 flex flex-col space-y-6 font-bold text-[#335495] shadow-2xl absolute w-full z-50 animate-in slide-in-from-top duration-300">
+            <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>HOME</a>
+            <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>ABOUT US</a>
+            <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>SERVICES</a>
+            <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>PROJECTS</a>
+            <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>CONTACT</a>
           </div>
         )}
       </header>
@@ -90,52 +126,79 @@ const App = () => {
 
       {/* --- HERO SECTION --- */}
       <div className="relative w-full h-[550px] md:h-[600px] bg-gray-200 overflow-hidden flex flex-col md:flex-row">
-        <div className="absolute inset-0 z-0">
-        <img src="/bg-2.jpeg" alt="Ikon Sports" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/20"></div>
-        </div>
-
-        <div 
-          className="absolute top-0 left-0 h-full w-full md:w-[55%] z-10 hidden md:block"
-          style={{
-            backgroundColor: colors.green,
-            clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0% 100%)' 
-          }}
-        ></div>
-        
-        <div className="absolute inset-0 bg-gradient-to-r from-[#C8D653]/90 to-transparent md:hidden z-10"></div>
-
-        <div className="relative z-20 container mx-auto px-4 h-full flex items-center justify-center md:justify-start">
-          <div className="max-w-2xl text-[#335495] pt-12 md:pt-0 text-center md:text-left">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black uppercase leading-tight md:leading-[1.1] mb-6 md:mb-8 tracking-tight drop-shadow-sm">
-              India’s No. 1 <br className="hidden md:block"/> Sports Courts <br/>
-              Infrastructure Company
-            </h1>
-            <p className="text-[#335495] font-bold mb-6 text-sm md:text-lg">
-                7+ Years Experience | Pan-India Turnkey Execution |<br/> 400+ Courts Delivered
-            </p>
-            <p className="text-[#335495] font-medium mb-8 text-xs md:text-sm max-w-lg">
-                We design, build and deliver high-performance sports courts for schools, academies, clubs, townships and commercial projects across India.
-            </p>
-            <button className="bg-[#335495] text-white px-8 py-3 text-xs md:text-sm font-bold uppercase hover:bg-blue-800 transition shadow-lg rounded-sm tracking-wide transform hover:-translate-y-0.5">
-              Get a Free Site Assessment
-            </button>
+      {/* --- AUTO-SCROLLING BACKGROUND --- */}
+      <div className="absolute inset-0 z-0">
+        {heroImages.map((img, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img 
+              src={img} 
+              alt={`Slide ${index}`} 
+              className="w-full h-full object-cover" 
+            />
           </div>
-        </div>
+        ))}
+        {/* Dark Overlay for Readability */}
+        <div className="absolute inset-0 bg-black/20"></div>
+      </div>
 
-        <div 
-            className="absolute bottom-0 left-0 w-full h-16 md:h-24 z-10 pointer-events-none hidden md:block"
-            style={{
-                background: 'linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)',
-                clipPath: 'polygon(0 40%, 100% 0, 100% 100%, 0% 100%)'
-            }}
-        ></div>
-        
-        <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-20 text-right text-white drop-shadow-md">
-            <h3 className="text-sm md:text-xl font-bold leading-none">Our Project</h3>
-            <p className="text-xs md:text-sm font-medium opacity-90">Pan-India Execution</p>
+      {/* --- STATIC OVERLAYS (Green Slant) --- */}
+      <div 
+        className="absolute top-0 left-0 h-full w-full md:w-[55%] z-10 hidden md:block"
+        style={{
+          backgroundColor: '#C8D653', // Using your green color
+          clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0% 100%)' 
+        }}
+      ></div>
+      
+      <div className="absolute inset-0 bg-gradient-to-r from-[#C8D653]/90 to-transparent md:hidden z-10"></div>
+
+      {/* --- CONTENT --- */}
+      <div className="relative z-20 container mx-auto px-4 h-full flex items-center justify-center md:justify-start">
+        <div className="max-w-2xl text-[#335495] pt-12 md:pt-0 text-center md:text-left">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl font-black uppercase leading-tight md:leading-[1.1] mb-6 md:mb-8 tracking-tight drop-shadow-sm">
+            India’s No. 1 <br className="hidden md:block"/> Sports Courts <br/>
+            Infrastructure Company
+          </h1>
+          <p className="text-[#335495] font-bold mb-6 text-sm md:text-lg">
+              7+ Years Experience | Pan-India Turnkey Execution<br/> | 400+ Courts Delivered
+          </p>
+          <p className="text-[#335495] hidden lg:block font-medium mb-8 text-xs md:text-sm max-w-lg">
+              We design, build and deliver high-performance sports courts for schools, academies, clubs, townships and commercial projects across India.
+          </p>
+          <button className="bg-[#335495] text-white px-8 py-3 text-xs md:text-sm font-bold uppercase hover:bg-blue-800 transition shadow-lg rounded-sm tracking-wide transform hover:-translate-y-0.5">
+            Get a Free Site Assessment
+          </button>
         </div>
       </div>
+
+      {/* --- BOTTOM DECORATIVE STRIP --- */}
+      <div 
+          className="absolute bottom-0 left-0 w-full h-16 md:h-24 z-10 pointer-events-none hidden md:block"
+          style={{
+              background: 'linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)',
+              clipPath: 'polygon(0 40%, 100% 0, 100% 100%, 0% 100%)'
+          }}
+      ></div>
+      
+      <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-20 text-right text-white drop-shadow-md">
+          <h3 className="text-sm md:text-xl font-bold leading-none">Our Project</h3>
+          <p className="text-xs md:text-sm font-medium opacity-90">Pan-India Execution</p>
+          {/* Slide Indicators */}
+          <div className="flex justify-end space-x-2 mt-2">
+            {heroImages.map((_, i) => (
+              <div 
+                key={i} 
+                className={`h-1 w-4 transition-all ${i === currentSlide ? 'bg-[#C8D653] w-8' : 'bg-white/50'}`}
+              />
+            ))}
+          </div>
+      </div>
+    </div>
 
       {/* --- ABOUT US SECTION --- */}
       <section className="py-12 md:py-20 bg-white">
