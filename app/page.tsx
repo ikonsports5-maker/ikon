@@ -125,80 +125,85 @@ const App = () => {
       </div> */}
 
       {/* --- HERO SECTION --- */}
-      <div className="relative w-full h-[550px] md:h-[600px] bg-gray-200 overflow-hidden flex flex-col md:flex-row">
-      {/* --- AUTO-SCROLLING BACKGROUND --- */}
-      <div className="absolute inset-0 z-0">
-        {heroImages.map((img, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <img 
-              src={img} 
-              alt={`Slide ${index}`} 
-              className="w-full h-full object-cover" 
-            />
-          </div>
-        ))}
-        {/* Dark Overlay for Readability */}
-        <div className="absolute inset-0 bg-black/20"></div>
-      </div>
+    <div className="relative w-full h-[550px] md:h-[600px] bg-gray-200 overflow-hidden">
+        {/* --- AUTO-SCROLLING BACKGROUND --- */}
+        <div className="absolute inset-0 z-0">
+          {heroImages.map((img, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img 
+                src={img} 
+                alt={`Slide ${index}`} 
+                className="w-full h-full object-cover" 
+              />
+            </div>
+          ))}
+          {/* Dark Overlay for Readability of bottom text */}
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
 
-      {/* --- STATIC OVERLAYS (Green Slant) --- */}
-      <div 
-        className="absolute top-0 left-0 h-full w-full md:w-[55%] z-10 hidden md:block"
-        style={{
-          backgroundColor: '#C8D653', // Using your green color
-          clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0% 100%)' 
-        }}
-      ></div>
-      
-      <div className="absolute inset-0 bg-gradient-to-r from-[#C8D653]/90 to-transparent md:hidden z-10"></div>
-
-      {/* --- CONTENT --- */}
-      <div className="relative z-20 container mx-auto px-4 h-full flex items-center justify-center md:justify-start">
-        <div className="max-w-2xl text-[#335495] pt-12 md:pt-0 text-center md:text-left">
-          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl font-black uppercase leading-tight md:leading-[1.1] mb-6 md:mb-8 tracking-tight drop-shadow-sm">
-            India’s No. 1 <br className="hidden md:block"/> Sports Courts <br/>
-            Infrastructure Company
-          </h1>
-          <p className="text-[#335495] font-bold mb-6 text-sm md:text-lg">
-              7+ Years Experience | Pan-India Turnkey Execution<br/> | 400+ Courts Delivered
-          </p>
-          <p className="text-[#335495] hidden lg:block font-medium mb-8 text-xs md:text-sm max-w-lg">
-              We design, build and deliver high-performance sports courts for schools, academies, clubs, townships and commercial projects across India.
-          </p>
-          <button className="bg-[#335495] text-white px-8 py-3 text-xs md:text-sm font-bold uppercase hover:bg-blue-800 transition shadow-lg rounded-sm tracking-wide transform hover:-translate-y-0.5">
-            Get a Free Site Assessment
-          </button>
+        {/* --- BOTTOM DECORATIVE STRIP --- */}
+        <div 
+            className="absolute bottom-0 left-0 w-full h-16 md:h-24 z-10 pointer-events-none hidden md:block"
+            style={{
+                background: 'linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)',
+                clipPath: 'polygon(0 40%, 100% 0, 100% 100%, 0% 100%)'
+            }}
+        ></div>
+        
+        {/* --- BOTTOM RIGHT CAPTION & INDICATORS --- */}
+        <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-20 text-right text-white drop-shadow-md">
+            <h3 className="text-sm md:text-xl font-bold leading-none">Our Project</h3>
+            <p className="text-xs md:text-sm font-medium opacity-90">Pan-India Execution</p>
+            {/* Slide Indicators */}
+            <div className="flex justify-end space-x-2 mt-2">
+              {heroImages.map((_, i) => (
+                <div 
+                  key={i} 
+                  className={`h-1 w-4 transition-all ${i === currentSlide ? 'bg-[#C8D653] w-8' : 'bg-white/50'}`}
+                />
+              ))}
+            </div>
         </div>
       </div>
 
-      {/* --- BOTTOM DECORATIVE STRIP --- */}
-      <div 
-          className="absolute bottom-0 left-0 w-full h-16 md:h-24 z-10 pointer-events-none hidden md:block"
-          style={{
-              background: 'linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)',
-              clipPath: 'polygon(0 40%, 100% 0, 100% 100%, 0% 100%)'
-          }}
-      ></div>
-      
-      <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-20 text-right text-white drop-shadow-md">
-          <h3 className="text-sm md:text-xl font-bold leading-none">Our Project</h3>
-          <p className="text-xs md:text-sm font-medium opacity-90">Pan-India Execution</p>
-          {/* Slide Indicators */}
-          <div className="flex justify-end space-x-2 mt-2">
-            {heroImages.map((_, i) => (
-              <div 
-                key={i} 
-                className={`h-1 w-4 transition-all ${i === currentSlide ? 'bg-[#C8D653] w-8' : 'bg-white/50'}`}
-              />
-            ))}
+      <section className="py-16 md:py-24  bg-[#C8D653] border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-20">
+            
+            {/* Left Column: Heading */}
+            <div className="w-full md:w-1/2">
+              <div className="inline-block bg-white rounded-lg text-[#335495] px-4 py-1 text-xs font-bold uppercase tracking-widest mb-4">
+                India's No. 1
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#335495] uppercase leading-[0.9] tracking-tighter">
+                Sports Courts <br/> Infrastructure <br/> Company
+              </h1>
+              <div className="h-2 w-24 bg-transparent rounded-lg mt-8"></div>
+            </div>
+
+            {/* Right Column: Details & CTA */}
+            <div className="w-full md:w-1/2 space-y-6">
+              <p className="text-xl md:text-2xl font-bold text-[#335495] leading-tight">
+                7+ Years Experience | Pan-India Turnkey Execution | 400+ Courts Delivered
+              </p>
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-xl">
+                We design, build and deliver high-performance sports courts for schools, academies, clubs, townships and commercial projects across India.
+              </p>
+              <div className="pt-4">
+                <button className="bg-[#335495] text-white px-10 py-4 text-sm font-bold uppercase hover:bg-blue-800 transition shadow-xl rounded-sm tracking-widest transform hover:-translate-y-1">
+                  Get a Free Site Assessment
+                </button>
+              </div>
+            </div>
+
           </div>
-      </div>
-    </div>
+        </div>
+      </section>
 
       {/* --- ABOUT US SECTION --- */}
       <section className="py-12 md:py-20 bg-white">
