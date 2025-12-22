@@ -746,8 +746,8 @@ const App = () => {
             <h4 className="font-bold text-[#C8D653] uppercase mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
               <li>Pan-India Operations</li>
-              <li>Call / WhatsApp: +91 77370 22715</li>
-              <li>info@ikonsports.in</li>
+              <li>Call / WhatsApp: 7737022715 Or 9358959715</li>
+              <li>ikonsportsinfra@gmail.com</li>
             </ul>
           </div>
            <div>
