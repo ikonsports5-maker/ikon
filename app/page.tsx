@@ -171,19 +171,19 @@ const App = () => {
         </div>
       </div>
 
-      <section className="py-16 md:py-24  bg-[#C8D653] border-b border-gray-100">
+      <section className="py-16 md:py-24  bg-white border-b border-gray-100">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-20">
             
             {/* Left Column: Heading */}
             <div className="w-full md:w-1/2">
-              <div className="inline-block bg-white rounded-lg text-[#335495] px-4 py-1 text-xs font-bold uppercase tracking-widest mb-4">
+              <div className="inline-block bg-[#C8D653] text-[#335495] px-4 py-1 text-xs font-bold uppercase tracking-widest mb-4">
                 India's No. 1
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#335495] uppercase leading-[0.9] tracking-tighter">
                 Sports Courts <br/> Infrastructure <br/> Company
               </h1>
-              <div className="h-2 w-24 bg-transparent rounded-lg mt-8"></div>
+              <div className="h-2 w-24 bg-[#C8D653] mt-8"></div>
             </div>
 
             {/* Right Column: Details & CTA */}
