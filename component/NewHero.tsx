@@ -1,5 +1,5 @@
 import React from 'react';
-import { Headset, Disc, ThumbsUp } from 'lucide-react';
+import { Headset, Disc, ThumbsUp, HardHat, LayoutGrid } from 'lucide-react';
 
 const SportsInfrastructureHero = () => {
   return (
@@ -58,7 +58,7 @@ const SportsInfrastructureHero = () => {
           {/* Tile 1 */}
           <div className="bg-white p-8 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.1)] flex items-start gap-4 transition-transform hover:-translate-y-1">
             <div className="text-[#00388c] flex-shrink-0 mt-1">
-              <Headset size={38} strokeWidth={1.5} />
+              <HardHat size={38} strokeWidth={1.5} />
             </div>
             <div>
               <h3 className="text-[#00388c] font-extrabold text-[13px] uppercase tracking-wide mb-2 leading-tight">
@@ -73,7 +73,7 @@ const SportsInfrastructureHero = () => {
           {/* Tile 2 */}
           <div className="bg-white p-8 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.1)] flex items-start gap-4 transition-transform hover:-translate-y-1">
             <div className="text-[#00388c] flex-shrink-0 mt-1">
-              <Disc size={38} strokeWidth={1.5} />
+              <LayoutGrid size={38} strokeWidth={1.5} />
             </div>
             <div>
               <h3 className="text-[#00388c] font-extrabold text-[13px] uppercase tracking-wide mb-2 leading-tight">

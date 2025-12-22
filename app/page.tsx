@@ -6,6 +6,10 @@ import {
 } from 'lucide-react';
 import YouTubeLoop from '@/component/YoutubeLoop';
 
+import { Quote, Star,Plus, Minus } from 'lucide-react';
+
+import {  ArrowLeft, ArrowRight, Phone } from 'lucide-react';
+
 import SportsInfrastructureHero from '@/component/NewHero';
 
 const App = () => {
@@ -66,6 +70,7 @@ const App = () => {
     </a>
       {/* --- HEADER --- */}
      
+    {/* --- HEADER --- */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
@@ -95,13 +100,25 @@ const App = () => {
               <a href="#" className="hover:text-[#C8D653] transition tracking-widest">CONTACT</a>
             </nav>
 
-            {/* Mobile Menu Button (Only visible on mobile) */}
-            <button 
-              className="md:hidden text-[#335495] p-2 hover:bg-gray-50 rounded-lg transition" 
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+            {/* --- MOBILE: PHONE + MENU ICON GROUP --- */}
+            <div className="flex items-center space-x-4 md:hidden">
+              {/* Clickable Mobile Number */}
+              <a 
+                href="tel:+917737022715" 
+                className="flex items-center space-x-1 text-[#335495] font-bold text-xs bg-gray-50 px-3 py-2 rounded-full border border-gray-100"
+              >
+                <Phone size={14} className="text-[#C8D653]" fill="#C8D653" />
+                <span>+91 77370 22715</span>
+              </a>
+
+              {/* Mobile Menu Button */}
+              <button 
+                className="text-[#335495] p-1 transition" 
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -205,7 +222,40 @@ const App = () => {
      <SportsInfrastructureHero />
 
 
-      {/* --- ABOUT US SECTION (Image Left, Content Right) --- */}
+    
+
+      {/* --- STATS COUNTER SECTION --- */}
+      <section className="py-12 md:py-20 relative" style={{ backgroundImage: `url('/waves-line.jpg')` }}>
+      
+        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-center text-center relative z-10">
+          
+          <div className="order-2 md:order-1">
+            <h3 className="text-4xl md:text-5xl font-black text-[#335495]">400+</h3>
+            <p className="text-xs font-bold tracking-widest mt-2 uppercase text-gray-800">Sports Courts<br/>Delivered</p>
+          </div>
+
+          <div className="flex flex-col items-center justify-center order-1 md:order-2">
+            <div className="text-[100px] md:text-[180px] font-black leading-none tracking-tighter select-none"
+                 style={{
+                   backgroundImage: 'url(/bg-1.jpeg)',
+                   WebkitBackgroundClip: 'text',
+                   WebkitTextFillColor: 'transparent',
+                   backgroundPosition: 'center'
+                 }}>
+              7+
+            </div>
+            <p className="text-sm font-bold uppercase tracking-[0.3em] text-gray-800 -mt-2 md:-mt-4 bg-white px-4">Years of Experience</p>
+          </div>
+
+          <div className="order-3">
+            <h3 className="text-4xl md:text-5xl font-black text-[#335495]">200+</h3>
+            <p className="text-xs font-bold tracking-widest mt-2 uppercase text-gray-800">Clients<br/>Across India</p>
+          </div>
+
+        </div>
+      </section>
+
+        {/* --- ABOUT US SECTION (Image Left, Content Right) --- */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -281,102 +331,160 @@ const App = () => {
         </div>
       </section>
 
-      {/* --- STATS COUNTER SECTION --- */}
-      <section className="py-12 md:py-20 relative" style={{ backgroundImage: `url('/waves-line.jpg')` }}>
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/topography.png')] opacity-10"></div>
-        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-center text-center relative z-10">
-          
-          <div className="order-2 md:order-1">
-            <h3 className="text-4xl md:text-5xl font-black text-[#335495]">400+</h3>
-            <p className="text-xs font-bold tracking-widest mt-2 uppercase text-gray-800">Sports Courts<br/>Delivered</p>
-          </div>
-
-          <div className="flex flex-col items-center justify-center order-1 md:order-2">
-            <div className="text-[100px] md:text-[180px] font-black leading-none tracking-tighter select-none"
-                 style={{
-                   backgroundImage: 'url(/bg-1.jpeg)',
-                   WebkitBackgroundClip: 'text',
-                   WebkitTextFillColor: 'transparent',
-                   backgroundPosition: 'center'
-                 }}>
-              7+
-            </div>
-            <p className="text-sm font-bold uppercase tracking-[0.3em] text-gray-800 -mt-2 md:-mt-4 bg-white px-4">Years of Experience</p>
-          </div>
-
-          <div className="order-3">
-            <h3 className="text-4xl md:text-5xl font-black text-[#335495]">200+</h3>
-            <p className="text-xs font-bold tracking-widest mt-2 uppercase text-gray-800">Clients<br/>Across India</p>
-          </div>
-
-        </div>
-      </section>
-
       {/* --- WHAT WE DO --- */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row items-start md:items-center">
-          <div className="md:w-1/4 mb-6 md:mb-0">
-            <h2 className="text-4xl md:text-5xl font-black text-[#335495] uppercase leading-none">
-              What <br/> <span className="text-[#335495]">We Do</span>
-            </h2>
-          </div>
-          <div className="md:w-3/4 md:pl-8 border-l-4 border-[#C8D653] pl-4">
-            <p className="text-gray-600 mb-4 max-w-2xl text-sm md:text-base font-bold text-[#335495]">
-              Sports Courts & Flooring Solutions:
-            </p>
-            <p className="text-gray-600 mb-6 max-w-3xl text-xs md:text-sm leading-relaxed grid grid-cols-2 md:grid-cols-3 gap-2">
-              <span>• Pickleball Courts</span>
-              <span>• Tennis Courts</span>
-              <span>• Basketball Courts</span>
-              <span>• Badminton Courts</span>
-              <span>• Futsal & Football Turf</span>
-              <span>• Cricket Turf</span>
-              <span>• Swimming Pool Construction</span>
-              <span>• Gym & Multipurpose Flooring</span>
-              <span>• Maintenance & Resurfacing</span>
-            </p>
-            <button className="border-2 border-[#335495] text-[#335495] px-6 py-2 text-xs font-bold uppercase hover:bg-[#335495] hover:text-white transition">
-              View All Services
-            </button>
+    {/* --- WHAT WE DO SECTION (High Visibility) --- */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row gap-12">
+            
+            {/* Left Column: Heading & Summary */}
+            <div className="lg:w-1/3">
+              <div className="sticky top-32">
+                <h2 className="text-4xl md:text-5xl font-black text-[#335495] uppercase leading-[0.9] mb-6">
+                  What <br/> <span className="text-[#C8D653]">We Do</span>
+                </h2>
+                <div className="h-1.5 w-20 bg-[#335495] mb-8"></div>
+                <p className="text-[#335495] font-bold text-lg mb-4 uppercase tracking-tight">
+                  Sports Courts & <br/> Flooring Solutions
+                </p>
+                <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-xs">
+                  From international standard Pickleball arenas to professional gym flooring, we provide end-to-end infrastructure excellence.
+                </p>
+                <button className="hidden lg:block bg-[#335495] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-blue-900 transition-all shadow-lg">
+                  View All Services
+                </button>
+              </div>
+            </div>
+
+            {/* Right Column: High-Visibility Service Cards */}
+            <div className="lg:w-2/3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                {[
+                  { title: "Pickleball Courts", desc: "Professional layouts & surfaces" },
+                  { title: "Tennis Courts", desc: "Multi-layer acrylic systems" },
+                  { title: "Basketball Courts", desc: "Shock-absorbent high-grip floors" },
+                  { title: "Badminton Courts", desc: "Indoor/Outdoor synthetic & wood" },
+                  { title: "Futsal & Football Turf", desc: "High-density UV resistant turf" },
+                  { title: "Cricket Turf", desc: "Indoor & Outdoor practice nets" },
+                  { title: "Swimming Pool", desc: "Custom residential & club pools" },
+                  { title: "Gym & Multipurpose", desc: "Heavy-duty rubberized flooring" },
+                  { title: "Maintenance", desc: "Resurfacing & crack repair" }
+                ].map((service, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white p-6 border-l-4 border-[#C8D653] shadow-sm hover:shadow-xl hover:bg-[#335495] group transition-all duration-300"
+                  >
+                    <div className="flex justify-between items-start mb-2">
+                       <h4 className="font-black text-[#335495] group-hover:text-white uppercase text-sm tracking-wide transition-colors">
+                        {service.title}
+                      </h4>
+                      <ChevronRight size={16} className="text-[#C8D653] group-hover:translate-x-1 transition-transform" />
+                    </div>
+                    <p className="text-gray-500 group-hover:text-blue-100 text-xs font-medium transition-colors">
+                      {service.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-8 lg:hidden">
+                <button className="w-full bg-[#335495] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest shadow-lg">
+                  View All Services
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* --- PROJECTS & EXHIBITIONS GRID --- */}
-      <section className="grid grid-cols-1 md:grid-cols-4 h-auto md:h-80">
-        <div className="h-56 md:h-full relative group overflow-hidden">
-           <img 
-            src="/bg-3.jpeg" 
-            alt="Completed Sports Project" 
-            className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+     {/* --- PROJECTS SECTION (Full Width Split) --- */}
+   
+
+{/* --- PROJECTS MOSAIC SECTION (IMAGES ONLY) --- */}
+<section className="py-16 md:py-24 bg-white">
+  <div className="container mx-auto px-4">
+    
+    {/* Section Header */}
+    <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+      <div>
+        <h2 className="text-3xl md:text-4xl font-black text-[#335495] uppercase leading-tight">
+          We believe in <br />
+          <span className="text-[#C8D653]">What we create!</span>
+        </h2>
+        <p className="text-gray-500 mt-2 font-medium">Some of the high-performance work delivered across India.</p>
+      </div>
+      <button className="group flex items-center gap-2 bg-[#335495] text-white px-6 py-3 rounded-full text-sm font-bold transition-all hover:bg-blue-800 shadow-lg">
+        Explore all portfolio
+        <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
+      </button>
+    </div>
+
+    {/* Mosaic Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-auto md:h-[600px]">
+      
+      {/* Left Column: Big Feature Image (6 cols) */}
+      <div className="md:col-span-6 relative group overflow-hidden  bg-[#C8D653]">
+        {/* Carousel Controls */}
+        <div className="absolute top-0 left-0 w-full flex justify-between items-center z-20 px-8 pt-8">
+          <button className="bg-black/20 hover:bg-black/40 p-3 rounded-full backdrop-blur-md transition-colors">
+            <ArrowLeft size={20} className="text-white" />
+          </button>
+          <button className="bg-black/20 hover:bg-black/40 p-3 rounded-full backdrop-blur-md transition-colors">
+            <ArrowRight size={20} className="text-white" />
+          </button>
+        </div>
+
+        {/* Main Image */}
+        <img 
+          src="/bg-2.jpeg" 
+          alt="Featured Project" 
+          className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+        />
+      </div>
+
+      {/* Center Column: Two Stacked Images (3 cols) */}
+      <div className="md:col-span-3 flex flex-col gap-4">
+        <div className="h-1/2 relative overflow-hidden shadow-md group">
+          <img 
+            src="/bg-1.jpeg" 
+            className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
+            alt="Project Detail 1"
           />
-          <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition"></div>
         </div>
-
-        <div className="bg-[#335495] p-8 flex flex-col justify-center items-start text-white h-auto md:h-full">
-          <h3 className="text-2xl md:text-3xl font-black uppercase mb-2">Our <br/> <span className="text-[#C8D653]">Projects</span></h3>
-          <p className="text-xs mb-4 opacity-80">Schools, Academies, Clubs & Resorts</p>
-          <a href="#" className="flex items-center text-sm font-medium hover:underline mt-2">
-            Click here <ChevronRight size={16} />
-          </a>
+        <div className="h-1/2 relative overflow-hidden shadow-md group">
+          <img 
+            src="/bg-3.jpeg" 
+            className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
+            alt="Project Detail 2"
+          />
         </div>
+      </div>
 
-        <div className="h-56 md:h-full relative group overflow-hidden">
+      {/* Right Column: Two Stacked Images (3 cols) */}
+      <div className="md:col-span-3 flex flex-col gap-4">
+        {/* Top Right: Color Accent Image */}
+        <div className="h-[40%] relative overflow-hidden shadow-md group">
            <img 
             src="/bg-4.jpeg" 
-            alt="Sports Infrastructure Exhibition" 
-            className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+            className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
+            alt="Project Detail 3"
           />
         </div>
-
-        <div className="bg-[#C8D653] p-8 flex flex-col justify-center items-start text-[#335495] h-auto md:h-full">
-          <h3 className="text-2xl md:text-3xl font-black uppercase mb-2"><span className="text-white">Our</span> <br/> Exhibitions</h3>
-          <p className="text-xs mb-4 opacity-80">Showcasing Global Standards</p>
-          <a href="#" className="flex items-center text-sm font-medium hover:underline mt-2">
-            Click here <ChevronRight size={16} />
-          </a>
+        {/* Bottom Right: Tall Detailed Image */}
+        <div className="h-[60%] relative overflow-hidden  shadow-md group">
+          <img 
+            src="/bg-5.jpeg" 
+            className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
+            alt="Project Detail 4"
+          />
         </div>
-      </section>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* --- SEO TEXT BLOCK --- */}
       <section className="py-16 md:py-20 bg-white text-center">
@@ -390,14 +498,14 @@ const App = () => {
           <p className="text-gray-500 text-sm md:text-md font-medium mb-10 leading-relaxed">
             Our courts transform the exhilarating game into an unforgettable experience, whether it's for professional play or community leisure.
           </p>
-          <button className="bg-[#335495] text-white px-12 py-3 text-xs font-bold uppercase hover:bg-blue-800 transition rounded-sm shadow-md">
+          <a href="https://wa.me/917737022715?text=Hello%20IKON%20Sports%2C%20I%20am%20interested%20in%20building%20a%20sports%20court." className="bg-[#335495] text-white px-12 py-3 text-xs font-bold uppercase hover:bg-blue-800 transition rounded-sm shadow-md">
             Call Us Today
-          </button>
+          </a>
         </div>
       </section>
 
       {/* --- WHAT IS PICKLEBALL --- */}
-      <section className="grid grid-cols-1 md:grid-cols-2 h-auto">
+      <section className="grid grid-cols-1 hidden md:grid-cols-2 h-auto">
         <div className="bg-[#C8D653] p-10 md:p-20 flex flex-col justify-center">
           <h2 className="text-3xl md:text-5xl font-black text-[#335495] uppercase mb-6">Pickleball</h2>
           <p className="text-[#335495] text-sm leading-relaxed font-medium">
@@ -414,7 +522,7 @@ const App = () => {
       </section>
 
       {/* --- EXECUTION PROCESS --- */}
-      <section className="grid grid-cols-1 md:grid-cols-2 h-auto">
+      <section className="grid  grid-cols-1 md:grid-cols-2 h-auto">
          <div className="h-56 md:h-auto order-2 md:order-1 relative">
            <img 
             src="/bg-5.jpeg" 
@@ -438,43 +546,156 @@ const App = () => {
       </section>
 
       {/* --- TYPES OF COURTS / SERVICES TABS --- */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#335495] mb-4 md:mb-6">Our Infrastructure Solutions</h2>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              At IKON, we provide a variety of high-performance court designs for schools, clubs, and residential townships. Explore our core services below:
-            </p>
-          </div>
+     {/* --- ENHANCED INFRASTRUCTURE SOLUTIONS (TABS) --- */}
+      {/* --- INFRASTRUCTURE SOLUTIONS (CLEAN VERSION) --- */}
+    <section className="py-12 md:py-16 bg-white">
+  <div className="container mx-auto px-4">
+    
+    {/* Simple Centered Header */}
+    <div className="text-center mb-10">
+      <h2 className="text-2xl md:text-3xl font-black text-[#335495] uppercase tracking-tight">
+        Infrastructure Solutions
+      </h2>
+      <div className="h-1 w-16 bg-[#C8D653] mx-auto mt-3"></div>
+    </div>
 
-          <div className="flex flex-col md:flex-row gap-0 max-w-6xl mx-auto shadow-lg md:shadow-none rounded-lg overflow-hidden md:rounded-none">
-            <div className="flex flex-col md:w-1/3 z-10">
-              {courtTypes.map((court, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTab(index)}
-                  className={`py-4 px-6 text-left font-bold text-sm transition-all border-b md:border-b-0 md:border md:border-[#335495] md:-mb-[1px] md:mr-[-1px] relative ${
-                    activeTab === index 
-                      ? 'bg-[#335495] text-white z-20' 
-                      : 'bg-white text-[#335495] hover:bg-blue-50 z-0'
-                  }`}
-                >
-                  {court.title}
-                </button>
-              ))}
+    {/* Compact Accordion Container */}
+    <div className="max-w-3xl mx-auto border-t border-gray-100">
+      {courtTypes.map((court, index) => (
+        <div 
+          key={index} 
+          className="border-b border-gray-100"
+        >
+          {/* Question / Toggle Button */}
+          <button
+            onClick={() => setActiveTab(activeTab === index ? -1 : index)}
+            className="w-full flex items-center justify-between py-5 px-2 text-left group transition-colors"
+          >
+            <span className={`text-base md:text-lg font-bold transition-colors ${
+              activeTab === index ? 'text-[#335495]' : 'text-gray-700 group-hover:text-[#335495]'
+            }`}>
+              {court.title}
+            </span>
+            
+            {/* Minimalist Icon */}
+            <div className={`transition-transform duration-300 ${
+              activeTab === index ? 'text-[#C8D653]' : 'text-gray-400'
+            }`}>
+              {activeTab === index ? <Minus size={20} /> : <Plus size={20} />}
             </div>
+          </button>
 
-            <div className="md:w-2/3 border-t-0 md:border md:border-[#335495] p-8 md:p-12 flex items-center bg-gray-50 md:bg-white min-h-[250px] md:min-h-[300px] relative z-10">
-              <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-                {courtTypes[activeTab].content}
+          {/* Collapsible Content */}
+          <div 
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+              activeTab === index ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+            }`}
+          >
+            <div className="px-2 pb-6">
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                {court.content}
               </p>
+              
+              <div className="mt-4 flex gap-3">
+                <button className="text-[#335495] text-[11px] font-bold uppercase tracking-wider underline decoration-[#C8D653] decoration-2 underline-offset-4 hover:text-blue-800">
+                  Get Technical Specs
+                </button>
+                <button className="text-[#335495] text-[11px] font-bold uppercase tracking-wider underline decoration-[#C8D653] decoration-2 underline-offset-4 hover:text-blue-800">
+                  View Projects
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+
+   
+
+{/* --- TESTIMONIALS SECTION --- */}
+<section className="py-16 md:py-24 bg-gray-50">
+  <div className="container mx-auto px-4">
+    
+    {/* Section Header */}
+    <div className="text-center max-w-3xl mx-auto mb-16">
+      <h2 className="text-3xl md:text-5xl font-black text-[#335495] uppercase leading-tight mb-4">
+        Trusted by <span className="text-[#C8D653]">Industry Leaders</span>
+      </h2>
+      <div className="h-1.5 w-24 bg-[#335495] mx-auto mb-6"></div>
+      <p className="text-gray-600 font-medium">
+        Hear from the schools, clubs, and developers who chose IKON for their world-class sports infrastructure.
+      </p>
+    </div>
+
+    {/* Testimonials Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        {
+          name: "Rajesh Sharma",
+          role: "Director, Sports Academy",
+          text: "IKON's turnkey approach was flawless. From the initial site survey to the final line marking, their team handled everything with extreme professionalism."
+        },
+        {
+          name: "Amit Verma",
+          role: "Club Manager",
+          text: "The quality of the Pickleball courts is world-class. Our members are thrilled with the surface grip and the overall finish. Truly India's No. 1 company."
+        },
+        {
+          name: "Sanjay Mehta",
+          role: "Real Estate Developer",
+          text: "We needed 4 courts delivered within a tight deadline for our new township. IKON delivered ahead of schedule without compromising on quality."
+        }
+      ].map((item, index) => (
+        <div 
+          key={index} 
+          className="bg-white p-8 rounded-xl shadow-lg border-b-4 border-[#C8D653] hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative"
+        >
+          {/* Quote Icon */}
+          <div className="absolute -top-4 left-8 bg-[#335495] p-3 rounded-lg text-white shadow-md">
+            <Quote size={20} fill="white" />
+          </div>
+
+          {/* Star Rating */}
+          <div className="flex space-x-1 mb-6 mt-2">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} size={16} className="text-[#C8D653]" fill="#C8D653" />
+            ))}
+          </div>
+
+          {/* Review Text */}
+          <p className="text-gray-600 italic mb-8 leading-relaxed">
+            "{item.text}"
+          </p>
+
+          {/* Client Profile */}
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-bold text-[#335495] border border-gray-200">
+              {item.name.charAt(0)}
+            </div>
+            <div>
+              <h4 className="text-[#335495] font-black uppercase text-sm tracking-tight">{item.name}</h4>
+              <p className="text-[#C8D653] text-[10px] font-bold uppercase tracking-widest">{item.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Bottom Trust Note */}
+    <div className="mt-16 text-center">
+      <p className="text-[#335495] font-bold uppercase text-xs tracking-[0.4em] opacity-50">
+        400+ Successful Projects Across India
+      </p>
+    </div>
+  </div>
+</section>
 
       {/* --- MAINTENANCE --- */}
-      <section className="py-8 md:py-12 bg-white mb-8 md:mb-12">
+      <section className="py-8 hidden md:py-12 bg-white mb-8 md:mb-12">
         <div className="container mx-auto px-4">
            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-5xl mx-auto rounded-xl p-6 md:p-12">
               <div className="relative w-full md:w-1/2 p-4">
