@@ -6,11 +6,14 @@ import {
 } from 'lucide-react';
 import YouTubeLoop from '@/component/YoutubeLoop';
 
+
+
 import { Quote, Star,Plus, Minus } from 'lucide-react';
 
 import {  ArrowLeft, ArrowRight, Phone } from 'lucide-react';
 
 import SportsInfrastructureHero from '@/component/NewHero';
+import Header from '@/component/Header';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,66 +74,7 @@ const App = () => {
       {/* --- HEADER --- */}
      
     {/* --- HEADER --- */}
-   <header className="bg-white shadow-sm sticky top-0 z-50">
-  <div className="container mx-auto px-4 py-2">
-    <div className="flex items-center justify-between">
-      
-      {/* 1. Desktop Left Navigation - Changed flex-1 to justify-end */}
-      <nav className="hidden md:flex flex-1 items-center justify-end space-x-8 font-semibold text-xs lg:text-sm text-[#335495]">
-        <a href="/" className="hover:text-[#C8D653] transition tracking-widest">HOME</a>
-        <a href="/about-us" className="hover:text-[#C8D653] transition tracking-widest">ABOUT US</a>
-        <a href="/blogs" className="hover:text-[#C8D653] transition tracking-widest">BLOGS</a>
-      </nav>
-
-      {/* 2. Centered Logo - Controlled by mx (margins) */}
-      <div className="flex-shrink-0 mx-4 md:mx-20"> {/* Increased margin slightly for clear but tight breathing room */}
-        <a href="/">
-          <img 
-            src="/logo.jpg" 
-            alt="Ikon Sports" 
-            className="w-14 h-14 md:w-16 md:h-16 object-contain hover:scale-105 transition-transform duration-300" 
-          />
-        </a>
-      </div>
-
-      {/* 3. Desktop Right Navigation - Changed flex-1 to justify-start */}
-      <nav className="hidden md:flex flex-1 items-center justify-start space-x-8 font-semibold text-xs lg:text-sm text-[#335495]">
-        <a href="/services" className="hover:text-[#C8D653] transition tracking-widest">SERVICES</a>
-        <a href="/projects" className="hover:text-[#C8D653] transition tracking-widest">PROJECTS</a>
-        <a href="/contact" className="hover:text-[#C8D653] transition tracking-widest">CONTACT</a>
-      </nav>
-
-      {/* Mobile Menu Button - Kept separate from desktop logic */}
-      <div className="flex items-center space-x-4 md:hidden">
-        <a 
-          href="tel:+917737022715" 
-          className="flex items-center space-x-1 text-[#335495] font-bold text-xs bg-gray-50 px-3 py-2 rounded-full border border-gray-100"
-        >
-          <Phone size={14} className="text-[#C8D653]" fill="#C8D653" />
-          <span>+91 77370 22715</span>
-        </a>
-
-        <button 
-          className="text-[#335495] p-1 transition" 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
-    </div>
-  </div>
-
-  {/* Mobile Nav Menu */}
-  {isMenuOpen && (
-    <div className="md:hidden bg-white border-t p-6 flex flex-col space-y-6 font-bold text-[#335495] shadow-2xl absolute w-full z-50 animate-in slide-in-from-top duration-300">
-      <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>HOME</a>
-      <a href="/about-us" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>ABOUT US</a>
-      <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>SERVICES</a>
-      <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>PROJECTS</a>
-      <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>CONTACT</a>
-    </div>
-  )}
-</header>
+   <Header />
 
 
      
@@ -401,10 +345,13 @@ const App = () => {
    
 
 {/* --- PROJECTS MOSAIC SECTION (IMAGES ONLY) --- */}
+
+
+{/* --- PORTFOLIO SECTION --- */}
 <section className="py-16 md:py-24 bg-white">
   <div className="container mx-auto px-4">
     
-    {/* Section Header */}
+    {/* Section Header - Kept same as desktop for consistency */}
     <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
       <div>
         <h2 className="text-3xl md:text-4xl font-black text-[#335495] uppercase leading-tight">
@@ -413,23 +360,27 @@ const App = () => {
         </h2>
         <p className="text-gray-500 mt-2 font-medium">Some of the high-performance work delivered across India.</p>
       </div>
-      <button className="group flex items-center gap-2 bg-[#335495] text-white px-6 py-3 rounded-full text-sm font-bold transition-all hover:bg-blue-800 shadow-lg">
+      <button className="group flex items-center gap-2 bg-[#335495] text-white px-6 py-3 rounded-full text-sm font-bold transition-all hover:bg-blue-800 shadow-lg self-start md:self-auto">
         Explore all portfolio
         <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
       </button>
     </div>
 
-    {/* Mosaic Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-auto md:h-[600px]">
+    {/* Mosaic Grid - Responsive Layout */}
+    {/* Mobile: grid-cols-2, h-auto */}
+    {/* Desktop: grid-cols-12, h-[600px] */}
+    <div className="grid grid-cols-2 md:grid-cols-12 gap-4 h-auto md:h-[600px]">
       
-      {/* Left Column: Big Feature Image (6 cols) */}
-      <div className="md:col-span-6 relative group overflow-hidden  bg-[#C8D653]">
+      {/* Big Feature Image */}
+      {/* Mobile: col-span-2 (full width), h-64 */}
+      {/* Desktop: col-span-6, h-full */}
+      <div className="col-span-2 md:col-span-6 relative group overflow-hidden h-64 md:h-auto bg-[#C8D653] rounded-sm">
         {/* Carousel Controls */}
-        <div className="absolute top-0 left-0 w-full flex justify-between items-center z-20 px-8 pt-8">
-          <button className="bg-black/20 hover:bg-black/40 p-3 rounded-full backdrop-blur-md transition-colors">
+        <div className="absolute top-0 left-0 w-full flex justify-between items-center z-20 px-4 pt-4 md:px-8 md:pt-8">
+          <button className="bg-black/20 hover:bg-black/40 p-2 md:p-3 rounded-full backdrop-blur-md transition-colors">
             <ArrowLeft size={20} className="text-white" />
           </button>
-          <button className="bg-black/20 hover:bg-black/40 p-3 rounded-full backdrop-blur-md transition-colors">
+          <button className="bg-black/20 hover:bg-black/40 p-2 md:p-3 rounded-full backdrop-blur-md transition-colors">
             <ArrowRight size={20} className="text-white" />
           </button>
         </div>
@@ -442,16 +393,18 @@ const App = () => {
         />
       </div>
 
-      {/* Center Column: Two Stacked Images (3 cols) */}
-      <div className="md:col-span-3 flex flex-col gap-4">
-        <div className="h-1/2 relative overflow-hidden shadow-md group">
+      {/* Center Column Stack */}
+      {/* Mobile: col-span-1, grid-rows-2, h-48 */}
+      {/* Desktop: col-span-3, flex-col, h-full */}
+      <div className="col-span-1 md:col-span-3 grid grid-rows-2 gap-4 h-48 md:h-auto">
+        <div className="relative overflow-hidden shadow-md group rounded-sm">
           <img 
             src="/bg-1.jpeg" 
             className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
             alt="Project Detail 1"
           />
         </div>
-        <div className="h-1/2 relative overflow-hidden shadow-md group">
+        <div className="relative overflow-hidden shadow-md group rounded-sm">
           <img 
             src="/bg-3.jpeg" 
             className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
@@ -460,18 +413,24 @@ const App = () => {
         </div>
       </div>
 
-      {/* Right Column: Two Stacked Images (3 cols) */}
-      <div className="md:col-span-3 flex flex-col gap-4">
-        {/* Top Right: Color Accent Image */}
-        <div className="h-[40%] relative overflow-hidden shadow-md group">
+      {/* Right Column Stack */}
+      {/* Mobile: col-span-1, grid-rows-2, h-48 */}
+      {/* Desktop: col-span-3, flex-col, h-full */}
+      <div className="col-span-1 md:col-span-3 grid grid-rows-2 gap-4 h-48 md:h-auto">
+        {/* Top Right Image */}
+        {/* Mobile: row-span-1 */}
+        {/* Desktop: h-[40%] */}
+        <div className="relative overflow-hidden shadow-md group rounded-sm md:h-[40%]">
            <img 
             src="/bg-4.jpeg" 
             className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
             alt="Project Detail 3"
           />
         </div>
-        {/* Bottom Right: Tall Detailed Image */}
-        <div className="h-[60%] relative overflow-hidden  shadow-md group">
+        {/* Bottom Right Image */}
+        {/* Mobile: row-span-1 */}
+        {/* Desktop: h-[60%] */}
+        <div className="relative overflow-hidden shadow-md group rounded-sm md:h-[60%]">
           <img 
             src="/bg-5.jpeg" 
             className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
