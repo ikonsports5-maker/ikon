@@ -26,7 +26,7 @@ const sportsData: Record<string, {
     tagline: 'designed for optimal performance, durability, and safety',
     heroImage: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2000&auto=format&fit=crop',
     expertiseTitle: 'Cricket Turf Construction India',
-    expertiseDescription: 'At Amico Sports, we deliver ICC-standard cricket turf solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your pitch exceeds expectations. Using cutting-edge artificial cricket turf from international suppliers, we\'ve built 50+ cricket fields and 200+ cricket turfs that are reshaping how the game is played. Our commitment to quality has established us as a leader in cricket turf in India, helping players at every level enjoy the best playing surfaces available.',
+    expertiseDescription: 'At ikon Sports, we deliver ICC-standard cricket turf solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your pitch exceeds expectations. Using cutting-edge artificial cricket turf from international suppliers, we\'ve built 50+ cricket fields and 200+ cricket turfs that are reshaping how the game is played. Our commitment to quality has established us as a leader in cricket turf in India, helping players at every level enjoy the best playing surfaces available.',
     faqs: [
       {
         question: 'Why Invest in a Cricket Turf?',
@@ -95,7 +95,7 @@ const sportsData: Record<string, {
     tagline: 'designed for optimal playability, durability, and safety',
     heroImage: 'https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?q=80&w=2000&auto=format&fit=crop',
     expertiseTitle: 'Tennis Court Construction India',
-    expertiseDescription: 'At Amico Sports, we deliver ITF-standard tennis court solutions designed for optimal playability, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your court exceeds expectations. Using cutting-edge tennis court surfaces from leading suppliers, we\'ve built 100+ tennis courts that are reshaping how the game is played. Our commitment to quality has established us as a leader in tennis court construction in India, helping players at every level enjoy the best playing surfaces available.',
+    expertiseDescription: 'At ikon Sports, we deliver ITF-standard tennis court solutions designed for optimal playability, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your court exceeds expectations. Using cutting-edge tennis court surfaces from leading suppliers, we\'ve built 100+ tennis courts that are reshaping how the game is played. Our commitment to quality has established us as a leader in tennis court construction in India, helping players at every level enjoy the best playing surfaces available.',
     faqs: [
       {
         question: 'Why Invest in a Tennis Court?',
@@ -164,7 +164,7 @@ const sportsData: Record<string, {
     tagline: 'designed for optimal playability, durability, and safety',
     heroImage: 'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=1600&h=600&fit=crop',
     expertiseTitle: 'Football Turf Construction India',
-    expertiseDescription: 'At Amico Sports, we deliver FIFA-standard football turf solutions designed for optimal playability, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your pitch exceeds expectations. Using cutting-edge artificial football turf from Limonta, we\'ve built 7 FIFA-quality football fields and 50+ football turfs that are reshaping how the game is played. Our commitment to quality has established us as a leader in football turf in India, helping players at every level enjoy the best playing surfaces available.',
+    expertiseDescription: 'At ikon Sports, we deliver FIFA-standard football turf solutions designed for optimal playability, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your pitch exceeds expectations. Using cutting-edge artificial football turf from Limonta, we\'ve built 7 FIFA-quality football fields and 50+ football turfs that are reshaping how the game is played. Our commitment to quality has established us as a leader in football turf in India, helping players at every level enjoy the best playing surfaces available.',
     faqs: [
       {
         question: 'Why Invest in a Football Turf?',
@@ -233,7 +233,7 @@ const sportsData: Record<string, {
     tagline: 'designed for optimal performance, durability, and safety',
     heroImage: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2000&auto=format&fit=crop',
     expertiseTitle: 'Basketball Court Construction India',
-    expertiseDescription: 'At Amico Sports, we deliver FIBA-standard basketball court solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your court exceeds expectations. Using cutting-edge basketball court surfaces from leading suppliers, we\'ve built numerous basketball courts that provide exceptional playing conditions. Our commitment to quality has established us as a leader in basketball court construction in India.',
+    expertiseDescription: 'At ikon Sports, we deliver FIBA-standard basketball court solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your court exceeds expectations. Using cutting-edge basketball court surfaces from leading suppliers, we\'ve built numerous basketball courts that provide exceptional playing conditions. Our commitment to quality has established us as a leader in basketball court construction in India.',
     faqs: [
       {
         question: 'Why Invest in a Basketball Court?',
@@ -302,7 +302,7 @@ const sportsData: Record<string, {
     tagline: 'designed for optimal performance, durability, and safety',
     heroImage: 'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=1600&h=600&fit=crop',
     expertiseTitle: 'Badminton Court Construction India',
-    expertiseDescription: 'At Amico Sports, we deliver BWF-standard badminton court solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your court exceeds expectations. Using premium badminton court flooring from leading suppliers, we\'ve built numerous badminton courts that provide exceptional playing conditions. Our commitment to quality has established us as a leader in badminton court construction in India.',
+    expertiseDescription: 'At ikon Sports, we deliver BWF-standard badminton court solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your court exceeds expectations. Using premium badminton court flooring from leading suppliers, we\'ve built numerous badminton courts that provide exceptional playing conditions. Our commitment to quality has established us as a leader in badminton court construction in India.',
     faqs: [
       {
         question: 'Why Invest in a Badminton Court?',
@@ -371,7 +371,7 @@ const sportsData: Record<string, {
     tagline: 'designed for optimal playability, durability, and safety',
     heroImage: '/player1.png',
     expertiseTitle: 'Pickleball Court Construction India',
-    expertiseDescription: 'At Amico Sports, we deliver USAPA-standard pickleball court solutions designed for optimal playability, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your court exceeds expectations. Using cutting-edge pickleball court surfaces, we\'ve built numerous pickleball courts that are introducing this rapidly growing sport across India. Our commitment to quality has established us as a leader in pickleball court construction in India.',
+    expertiseDescription: 'At ikon Sports, we deliver USAPA-standard pickleball court solutions designed for optimal playability, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your court exceeds expectations. Using cutting-edge pickleball court surfaces, we\'ve built numerous pickleball courts that are introducing this rapidly growing sport across India. Our commitment to quality has established us as a leader in pickleball court construction in India.',
     faqs: [
       {
         question: 'Why Invest in a Pickleball Court?',
@@ -440,7 +440,7 @@ const sportsData: Record<string, {
     tagline: 'designed for optimal playability, durability, and safety',
     heroImage: 'https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?w=1600&h=600&fit=crop',
     expertiseTitle: 'Padel Court Construction India',
-    expertiseDescription: 'At Amico Sports, we deliver International Padel Federation standard padel court solutions designed for optimal playability, durability, and safety. Whether for professional clubs or recreational grounds, our expertise ensures your court exceeds expectations. Using premium padel court materials including tempered glass walls and synthetic grass, we\'re introducing this exciting sport across India. Our commitment to quality has established us as a leader in padel court construction in India.',
+    expertiseDescription: 'At ikon Sports, we deliver International Padel Federation standard padel court solutions designed for optimal playability, durability, and safety. Whether for professional clubs or recreational grounds, our expertise ensures your court exceeds expectations. Using premium padel court materials including tempered glass walls and synthetic grass, we\'re introducing this exciting sport across India. Our commitment to quality has established us as a leader in padel court construction in India.',
     faqs: [
       {
         question: 'Why Invest in a Padel Court?',
@@ -509,7 +509,7 @@ const sportsData: Record<string, {
     tagline: 'designed for optimal performance, durability, and safety',
     heroImage: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&h=600&fit=crop',
     expertiseTitle: 'Squash Court Construction India',
-    expertiseDescription: 'At Amico Sports, we deliver WSF-standard squash court solutions designed for optimal performance, durability, and safety. Whether for professional clubs or recreational facilities, our expertise ensures your court exceeds expectations. Using premium squash court materials including wall panels and hardwood flooring, we\'ve built numerous squash courts across India. Our commitment to quality has established us as a leader in squash court construction in India.',
+    expertiseDescription: 'At ikon Sports, we deliver WSF-standard squash court solutions designed for optimal performance, durability, and safety. Whether for professional clubs or recreational facilities, our expertise ensures your court exceeds expectations. Using premium squash court materials including wall panels and hardwood flooring, we\'ve built numerous squash courts across India. Our commitment to quality has established us as a leader in squash court construction in India.',
     faqs: [
       {
         question: 'Why Invest in a Squash Court?',
@@ -578,7 +578,7 @@ const sportsData: Record<string, {
     tagline: 'designed for optimal performance, durability, and safety',
     heroImage: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1600&h=600&fit=crop',
     expertiseTitle: 'Athletic Track Construction India',
-    expertiseDescription: 'At Amico Sports, we deliver World Athletics certified running track solutions designed for optimal performance, durability, and safety. Whether for schools, universities, or sports complexes, our expertise ensures your track exceeds expectations. Using cutting-edge polyurethane and rubber surfaces, we\'ve built numerous athletic tracks across India. Our commitment to quality has established us as a leader in athletic track construction in India.',
+    expertiseDescription: 'At ikon Sports, we deliver World Athletics certified running track solutions designed for optimal performance, durability, and safety. Whether for schools, universities, or sports complexes, our expertise ensures your track exceeds expectations. Using cutting-edge polyurethane and rubber surfaces, we\'ve built numerous athletic tracks across India. Our commitment to quality has established us as a leader in athletic track construction in India.',
     faqs: [
       {
         question: 'Why Invest in an Athletic Track?',
@@ -647,7 +647,7 @@ const sportsData: Record<string, {
     tagline: 'designed for optimal performance, durability, and safety',
     heroImage: 'https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=1600&h=600&fit=crop',
     expertiseTitle: 'Swimming Pool Construction India',
-    expertiseDescription: 'At Amico Sports, we deliver Olympic-standard swimming pool solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, or recreational facilities, our expertise ensures your pool exceeds expectations. Using advanced filtration, water treatment, and construction technologies, we\'ve built numerous swimming pools across India. Our commitment to quality has established us as a leader in swimming pool construction in India.',
+    expertiseDescription: 'At ikon Sports, we deliver Olympic-standard swimming pool solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, or recreational facilities, our expertise ensures your pool exceeds expectations. Using advanced filtration, water treatment, and construction technologies, we\'ve built numerous swimming pools across India. Our commitment to quality has established us as a leader in swimming pool construction in India.',
     faqs: [
       {
         question: 'Why Invest in a Swimming Pool?',
