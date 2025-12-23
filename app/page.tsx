@@ -77,9 +77,9 @@ const App = () => {
       
       {/* 1. Desktop Left Navigation - Changed flex-1 to justify-end */}
       <nav className="hidden md:flex flex-1 items-center justify-end space-x-8 font-semibold text-xs lg:text-sm text-[#335495]">
-        <a href="#" className="hover:text-[#C8D653] transition tracking-widest">HOME</a>
-        <a href="#" className="hover:text-[#C8D653] transition tracking-widest">ABOUT US</a>
-        <a href="#" className="hover:text-[#C8D653] transition tracking-widest">BLOGS</a>
+        <a href="/" className="hover:text-[#C8D653] transition tracking-widest">HOME</a>
+        <a href="/about-us" className="hover:text-[#C8D653] transition tracking-widest">ABOUT US</a>
+        <a href="/blogs" className="hover:text-[#C8D653] transition tracking-widest">BLOGS</a>
       </nav>
 
       {/* 2. Centered Logo - Controlled by mx (margins) */}
@@ -95,9 +95,9 @@ const App = () => {
 
       {/* 3. Desktop Right Navigation - Changed flex-1 to justify-start */}
       <nav className="hidden md:flex flex-1 items-center justify-start space-x-8 font-semibold text-xs lg:text-sm text-[#335495]">
-        <a href="#" className="hover:text-[#C8D653] transition tracking-widest">SERVICES</a>
-        <a href="#" className="hover:text-[#C8D653] transition tracking-widest">PROJECTS</a>
-        <a href="#" className="hover:text-[#C8D653] transition tracking-widest">CONTACT</a>
+        <a href="/services" className="hover:text-[#C8D653] transition tracking-widest">SERVICES</a>
+        <a href="/projects" className="hover:text-[#C8D653] transition tracking-widest">PROJECTS</a>
+        <a href="/contact" className="hover:text-[#C8D653] transition tracking-widest">CONTACT</a>
       </nav>
 
       {/* Mobile Menu Button - Kept separate from desktop logic */}
@@ -124,7 +124,7 @@ const App = () => {
   {isMenuOpen && (
     <div className="md:hidden bg-white border-t p-6 flex flex-col space-y-6 font-bold text-[#335495] shadow-2xl absolute w-full z-50 animate-in slide-in-from-top duration-300">
       <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>HOME</a>
-      <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>ABOUT US</a>
+      <a href="/about-us" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>ABOUT US</a>
       <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>SERVICES</a>
       <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>PROJECTS</a>
       <a href="#" className="hover:text-[#C8D653] border-b border-gray-100 pb-2" onClick={() => setIsMenuOpen(false)}>CONTACT</a>
