@@ -263,9 +263,9 @@ const App = () => {
               </div>
 
               <div className="mt-10">
-                <button className="bg-[#335495] text-white px-10 py-4 text-xs font-bold uppercase hover:bg-blue-900 transition-all shadow-lg rounded-sm tracking-widest">
+                <a href="about-us" className="bg-[#335495] text-white px-10 py-4 text-xs font-bold uppercase hover:bg-blue-900 transition-all shadow-lg rounded-sm tracking-widest">
                   Read More
-                </button>
+                </a>
               </div>
             </div>
 
@@ -292,9 +292,9 @@ const App = () => {
                 <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-xs">
                   From international standard Pickleball arenas to professional gym flooring, we provide end-to-end infrastructure excellence.
                 </p>
-                <button className="hidden lg:block bg-[#335495] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-blue-900 transition-all shadow-lg">
+                <a href={"/services"} className="hidden w-fit lg:block bg-[#335495] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-blue-900 transition-all shadow-lg">
                   View All Services
-                </button>
+                </a>
               </div>
             </div>
 
@@ -693,10 +693,10 @@ const App = () => {
           <div>
             <h4 className="font-bold text-[#C8D653] uppercase mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white">Home</a></li>
-              <li><a href="#" className="hover:text-white">About Us</a></li>
-              <li><a href="#" className="hover:text-white">Projects</a></li>
-              <li><a href="#" className="hover:text-white">Services</a></li>
+              <li><a href="/" className="hover:text-white">Home</a></li>
+              <li><a href="/about-us" className="hover:text-white">About Us</a></li>
+              <li><a href="/projects" className="hover:text-white">Projects</a></li>
+              <li><a href="/services" className="hover:text-white">Services</a></li>
             </ul>
           </div>
            <div>
