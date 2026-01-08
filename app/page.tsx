@@ -39,9 +39,9 @@ const App = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const heroImages = [
-    "/bg-2.jpeg",
-    "/bg-1.jpeg", 
-    "/bg-3.jpeg"
+    "/2sd.jpg",
+    "/MOBILE-BANNER.jpg", 
+    "/vd.jpg"
   ];
 
   useEffect(() => {
@@ -148,7 +148,7 @@ const App = () => {
                 We design, build and deliver high-performance sports courts for schools, academies, clubs, townships and commercial projects across India.
               </p>
               <div className="pt-4">
-                <button className="bg-[#335495] text-white px-10 py-4 text-sm font-bold uppercase hover:bg-blue-800 transition shadow-xl rounded-sm tracking-widest transform hover:-translate-y-1">
+                <button onClick={()=>window.location.href="/contact"} className="bg-[#335495] text-white px-10 py-4 text-sm font-bold uppercase hover:bg-blue-800 transition shadow-xl rounded-sm tracking-widest transform hover:-translate-y-1">
                   Get a Free Site Assessment
                 </button>
               </div>
@@ -330,7 +330,7 @@ const App = () => {
               </div>
               
               <div className="mt-8 lg:hidden">
-                <button className="w-full bg-[#335495] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest shadow-lg">
+                <button onClick={()=>window.location.href="/services"} className="w-full bg-[#335495] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest shadow-lg">
                   View All Services
                 </button>
               </div>
@@ -360,10 +360,10 @@ const App = () => {
         </h2>
         <p className="text-gray-500 mt-2 font-medium">Some of the high-performance work delivered across India.</p>
       </div>
-      <button className="group flex items-center gap-2 bg-[#335495] text-white px-6 py-3 rounded-full text-sm font-bold transition-all hover:bg-blue-800 shadow-lg self-start md:self-auto">
+      {/* <button className="group flex items-center gap-2 bg-[#335495] text-white px-6 py-3 rounded-full text-sm font-bold transition-all hover:bg-blue-800 shadow-lg self-start md:self-auto">
         Explore all portfolio
         <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
-      </button>
+      </button> */}
     </div>
 
     {/* Mosaic Grid - Responsive Layout */}
@@ -557,9 +557,9 @@ const App = () => {
                 <button className="text-[#335495] text-[11px] font-bold uppercase tracking-wider underline decoration-[#C8D653] decoration-2 underline-offset-4 hover:text-blue-800">
                   Get Technical Specs
                 </button>
-                <button className="text-[#335495] text-[11px] font-bold uppercase tracking-wider underline decoration-[#C8D653] decoration-2 underline-offset-4 hover:text-blue-800">
+                {/* <button className="text-[#335495] text-[11px] font-bold uppercase tracking-wider underline decoration-[#C8D653] decoration-2 underline-offset-4 hover:text-blue-800">
                   View Projects
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -695,7 +695,7 @@ const App = () => {
             <ul className="space-y-2 text-gray-400">
               <li><a href="/" className="hover:text-white">Home</a></li>
               <li><a href="/about-us" className="hover:text-white">About Us</a></li>
-              <li><a href="/projects" className="hover:text-white">Projects</a></li>
+              {/* <li><a href="/projects" className="hover:text-white">Projects</a></li> */}
               <li><a href="/services" className="hover:text-white">Services</a></li>
             </ul>
           </div>

@@ -43,7 +43,7 @@ const SportsInfrastructureHero = () => {
               Maharashtra, Karnataka, Telangana, Tamil Nadu & more.
             </p>
 
-            <button className="bg-[#dae635] text-[#00388c] font-black py-4 px-10 rounded-sm hover:scale-105 transition-transform uppercase text-sm tracking-wider shadow-lg">
+            <button onClick={()=>window.location.href="/contact"} className="bg-[#dae635] text-[#00388c] font-black py-4 px-10 rounded-sm hover:scale-105 transition-transform uppercase text-sm tracking-wider shadow-lg">
               Get a Quote
             </button>
           </div>
