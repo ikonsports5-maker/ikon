@@ -207,7 +207,7 @@ const App = () => {
               <div className="relative rounded-sm overflow-hidden shadow-2xl bg-gray-100 group">
                 {/* Main Image */}
                 <img 
-                  src="/bg-2.jpeg" 
+                  src="/MOBILE-BANNER-1 v.jpg" 
                   alt="IKON Sports Construction" 
                   className="w-full h-64 md:h-[450px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -387,7 +387,7 @@ const App = () => {
 
         {/* Main Image */}
         <img 
-          src="/bg-2.jpeg" 
+          src="/pickleball-image.jpg" 
           alt="Featured Project" 
           className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
         />
@@ -399,14 +399,14 @@ const App = () => {
       <div className="col-span-1 md:col-span-3 grid grid-rows-2 gap-4 h-48 md:h-auto">
         <div className="relative overflow-hidden shadow-md group rounded-sm">
           <img 
-            src="/bg-1.jpeg" 
+            src="/vd.jpg" 
             className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
             alt="Project Detail 1"
           />
         </div>
         <div className="relative overflow-hidden shadow-md group rounded-sm">
           <img 
-            src="/bg-3.jpeg" 
+            src="/2sd.jpg" 
             className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
             alt="Project Detail 2"
           />
@@ -422,7 +422,7 @@ const App = () => {
         {/* Desktop: h-[40%] */}
         <div className="relative overflow-hidden shadow-md group rounded-sm md:h-[40%]">
            <img 
-            src="/bg-4.jpeg" 
+            src="/MOBILE-BANNER-1 v.jpg" 
             className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
             alt="Project Detail 3"
           />
@@ -482,7 +482,7 @@ const App = () => {
       <section className="grid  grid-cols-1 md:grid-cols-2 h-auto">
          <div className="h-56 md:h-auto order-2 md:order-1 relative">
            <img 
-            src="/bg-5.jpeg" 
+            src="/vd.jpg" 
             alt="Turnkey Execution Process" 
             className="w-full h-full object-cover"
           />
