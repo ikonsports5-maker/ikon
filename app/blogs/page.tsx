@@ -12,7 +12,7 @@ const BlogPage = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   
   // State to handle which blog is being read (null means show all)
-  const [selectedBlog, setSelectedBlog] = useState(null);
+  const [selectedBlog, setSelectedBlog] = useState<any>(null);
 
   // --- DUMMY DATA ---
   const blogs = [
