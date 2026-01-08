@@ -31,7 +31,7 @@ const ContactPage = () => {
   ];
 
   // WhatsApp Redirect Logic
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
     
     const whatsappNumber = "917737022715";
@@ -40,7 +40,7 @@ const ContactPage = () => {
     window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
