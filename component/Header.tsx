@@ -76,7 +76,7 @@ const Header = () => {
               </div>
             </div>
 
-            {/* <a href="/projects" className="hover:text-[#C8D653] transition tracking-widest">PROJECTS</a> */}
+            <a href="/projects" className="hover:text-[#C8D653] transition tracking-widest">PROJECTS</a>
             <a href="/contact" className="hover:text-[#C8D653] transition tracking-widest">CONTACT</a>
           </nav>
 
@@ -126,7 +126,7 @@ const Header = () => {
             )}
           </div>
 
-          {/* <a href="/projects" className="pb-2 border-b border-gray-100" onClick={() => setIsMenuOpen(false)}>PROJECTS</a> */}
+          <a href="/projects" className="pb-2 border-b border-gray-100" onClick={() => setIsMenuOpen(false)}>PROJECTS</a>
           <a href="/contact" className="pb-2 border-b border-gray-100" onClick={() => setIsMenuOpen(false)}>CONTACT</a>
         </div>
       )}
