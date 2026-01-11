@@ -128,6 +128,7 @@ const Header = () => {
 
           <a href="/projects" className="pb-2 border-b border-gray-100" onClick={() => setIsMenuOpen(false)}>PROJECTS</a>
           <a href="/contact" className="pb-2 border-b border-gray-100" onClick={() => setIsMenuOpen(false)}>CONTACT</a>
+          <a href="/blogs" className="pb-2 border-b border-gray-100" onClick={() => setIsMenuOpen(false)}>BLOGS</a>
         </div>
       )}
     </header>
