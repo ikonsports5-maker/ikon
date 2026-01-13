@@ -275,70 +275,98 @@ const App = () => {
 
       {/* --- WHAT WE DO --- */}
     {/* --- WHAT WE DO SECTION (High Visibility) --- */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-12">
-            
-            {/* Left Column: Heading & Summary */}
-            <div className="lg:w-1/3">
-              <div className="sticky top-32">
-                <h2 className="text-4xl md:text-5xl font-black text-[#335495] uppercase leading-[0.9] mb-6">
-                  What <br/> <span className="text-[#C8D653]">We Do</span>
-                </h2>
-                <div className="h-1.5 w-20 bg-[#335495] mb-8"></div>
-                <p className="text-[#335495] font-bold text-lg mb-4 uppercase tracking-tight">
-                  Sports Courts & <br/> Flooring Solutions
-                </p>
-                <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-xs">
-                  From international standard Pickleball arenas to professional gym flooring, we provide end-to-end infrastructure excellence.
-                </p>
-                <a href={"/services"} className="hidden w-fit lg:block bg-[#335495] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-blue-900 transition-all shadow-lg">
-                  View All Services
-                </a>
-              </div>
-            </div>
-
-            {/* Right Column: High-Visibility Service Cards */}
-            <div className="lg:w-2/3">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                {[
-                  { title: "Pickleball Courts", desc: "Professional layouts & surfaces" },
-                  { title: "Tennis Courts", desc: "Multi-layer acrylic systems" },
-                  { title: "Basketball Courts", desc: "Shock-absorbent high-grip floors" },
-                  { title: "Badminton Courts", desc: "Indoor/Outdoor synthetic & wood" },
-                  { title: "Futsal & Football Turf", desc: "High-density UV resistant turf" },
-                  { title: "Cricket Turf", desc: "Indoor & Outdoor practice nets" },
-                  { title: "Swimming Pool", desc: "Custom residential & club pools" },
-                  { title: "Gym & Multipurpose", desc: "Heavy-duty rubberized flooring" },
-                  { title: "Maintenance", desc: "Resurfacing & crack repair" }
-                ].map((service, index) => (
-                  <div 
-                    key={index} 
-                    className="bg-white p-6 border-l-4 border-[#C8D653] shadow-sm hover:shadow-xl hover:bg-[#335495] group transition-all duration-300"
-                  >
-                    <div className="flex justify-between items-start mb-2">
-                       <h4 className="font-black text-[#335495] group-hover:text-white uppercase text-sm tracking-wide transition-colors">
-                        {service.title}
-                      </h4>
-                      <ChevronRight size={16} className="text-[#C8D653] group-hover:translate-x-1 transition-transform" />
-                    </div>
-                    <p className="text-gray-500 group-hover:text-blue-100 text-xs font-medium transition-colors">
-                      {service.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="mt-8 lg:hidden">
-                <button onClick={()=>window.location.href="/services"} className="w-full bg-[#335495] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest shadow-lg">
-                  View All Services
-                </button>
-              </div>
-            </div>
-
-          </div>
+     <section className="py-16 md:py-24 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <div className="flex flex-col lg:flex-row gap-12">
+      
+      {/* Left Column: Heading & Summary */}
+      <div className="lg:w-1/3">
+        <div className="sticky top-32">
+          <h2 className="text-4xl md:text-5xl font-black text-[#335495] uppercase leading-[0.9] mb-6">
+            What <br/> <span className="text-[#C8D653]">We Do</span>
+          </h2>
+          <div className="h-1.5 w-20 bg-[#335495] mb-8"></div>
+          <p className="text-[#335495] font-bold text-lg mb-4 uppercase tracking-tight">
+            Sports Courts & <br/> Flooring Solutions
+          </p>
+          <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-xs">
+            From international standard Pickleball arenas to professional gym flooring, we provide end-to-end infrastructure excellence.
+          </p>
+          <a href="/services" className="hidden w-fit lg:block bg-[#335495] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-blue-900 transition-all shadow-lg">
+            View All Services
+          </a>
         </div>
-      </section>
+      </div>
+
+      {/* Right Column: Visual Service Cards */}
+      <div className="lg:w-2/3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {[
+            { id: "pickleball-courts", title: "Pickleball Courts", desc: "Professional layouts & surfaces", img: "/player1.png" },
+            { id: "tennis-courts", title: "Tennis Courts", desc: "Multi-layer acrylic systems", img: "https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?q=80&w=800&auto=format&fit=crop" },
+            { id: "basketball-courts", title: "Basketball Courts", desc: "Shock-absorbent floors", img: "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=800&auto=format&fit=crop" },
+            { id: "badminton-courts", title: "Badminton Courts", desc: "Synthetic & Wood flooring", img: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=1000&h=600&fit=crop" },
+            { id: "cricket-turf", title: "Cricket Turf", desc: "Practice nets & pitches", img: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=800&auto=format&fit=crop" },
+            { id: "football-turf", title: "Football Turf", desc: "Heavy-duty Turfs", img: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=1600&h=600&fit=crop" }
+          ].map((service, index) => (
+          <a 
+    href={`/services/${service.id}`} // This handles the navigation
+    key={index} 
+    className={`group block transition-all duration-500 ${index >= 3 ? 'hidden md:block' : 'block'}`}
+  >
+              {/* Service Image */}
+              <div className="relative h-64 overflow-hidden border-b-4 border-[#C8D653] shadow-md bg-gray-200">
+                <img 
+                  src={service.img} 
+                  alt={service.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                />
+                <div className="absolute inset-0 bg-[#335495]/10 group-hover:bg-transparent transition-colors duration-300"></div>
+              </div>
+
+              {/* Title & Description Below Image */}
+              <div className="py-4 text-left">
+                <div className="flex justify-between items-center mb-1">
+                  <h4 className="font-black text-[#335495] uppercase text-sm tracking-widest group-hover:text-[#C8D653] transition-colors">
+                    {service.title}
+                  </h4>
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="18" 
+                    height="18" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="3" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    className="text-[#C8D653] group-hover:translate-x-1 transition-transform"
+                  >
+                    <path d="m9 18 6-6-6-6"/>
+                  </svg>
+                </div>
+                <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest leading-tight">
+                  {service.desc}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile View All Button */}
+        <div className="mt-8 lg:hidden">
+          <button 
+            onClick={() => window.location.href="/services"} 
+            className="w-full bg-[#335495] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest shadow-lg active:scale-95 transition-transform"
+          >
+            View All Services
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* --- PROJECTS & EXHIBITIONS GRID --- */}
      {/* --- PROJECTS SECTION (Full Width Split) --- */}
