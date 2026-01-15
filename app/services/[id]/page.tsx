@@ -9,19 +9,7 @@ import Header from '@/component/Header';
 import Footer from '@/component/Footer';
 
 // Enhanced data structure with Gallery support
-const sportsData: Record<string, {
-  name: string;
-  tagline: string;
-  heroImage: string;
-  expertiseTitle: string;
-  expertiseDescription: string;
-  faqs: { question: string; answer: string }[];
-  services: { title: string; description: string; icon: string }[];
-  productTitle: string;
-  productDescription: string;
-  productImage: string;
-  productFeatures: { title: string; description: string }[];
-}> = {
+const sportsData: any = {
   'cricket-turf': {
     name: 'Cricket Turf',
     tagline: 'designed for optimal performance, durability, and safety',
