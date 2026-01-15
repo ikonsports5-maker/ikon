@@ -2,7 +2,7 @@
 import React, { useState,useEffect } from 'react';
 import { 
   Menu, X, Search, Facebook, Instagram, Linkedin, 
-  Headset, Atom, ThumbsUp, ChevronRight, Play 
+  Headset, Atom, ThumbsUp, ChevronRight, Play , ArrowUpRight, Zap
 } from 'lucide-react';
 import YouTubeLoop from '@/component/YoutubeLoop';
 
@@ -376,97 +376,103 @@ const App = () => {
 
 
 {/* --- PORTFOLIO SECTION --- */}
-<section className="py-16 md:py-24 bg-white">
-  <div className="container mx-auto px-4">
+<section className="py-20 lg:py-32 bg-white overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6">
     
-    {/* Section Header - Kept same as desktop for consistency */}
-    <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-      <div>
-        <h2 className="text-3xl md:text-4xl font-black text-[#335495] uppercase leading-tight">
+    {/* Section Header */}
+    <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
+      <div className="max-w-2xl">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-[2px] bg-[#C8D653]"></div>
+          <span className="text-[#C8D653] font-black uppercase tracking-[0.3em] text-[10px]">Portfolio Showcase</span>
+        </div>
+        <h2 className="text-5xl lg:text-7xl font-black text-[#335495] uppercase leading-[0.85] tracking-tighter">
           We believe in <br />
-          <span className="text-[#C8D653]">What we create!</span>
+          <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #335495' }}>What we create</span>
         </h2>
-        <p className="text-gray-500 mt-2 font-medium">Some of the high-performance work delivered across India.</p>
       </div>
-      {/* <button className="group flex items-center gap-2 bg-[#335495] text-white px-6 py-3 rounded-full text-sm font-bold transition-all hover:bg-blue-800 shadow-lg self-start md:self-auto">
-        Explore all portfolio
-        <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
-      </button> */}
+      <p className="text-gray-500 max-w-xs font-medium uppercase tracking-widest text-[10px] leading-loose">
+        High-performance infrastructure delivered across 22+ states in India.
+      </p>
     </div>
 
-    {/* Mosaic Grid - Responsive Layout */}
-    {/* Mobile: grid-cols-2, h-auto */}
-    {/* Desktop: grid-cols-12, h-[600px] */}
-    <div className="grid grid-cols-2 md:grid-cols-12 gap-4 h-auto md:h-[600px]">
+    {/* Collage Grid */}
+    <div className="grid grid-cols-2 md:grid-cols-12 gap-3 lg:gap-4 h-auto md:h-[700px]">
       
-      {/* Big Feature Image */}
-      {/* Mobile: col-span-2 (full width), h-64 */}
-      {/* Desktop: col-span-6, h-full */}
-      <div className="col-span-2 md:col-span-6 relative group overflow-hidden h-64 md:h-auto bg-[#C8D653] rounded-sm">
-        {/* Carousel Controls */}
-        <div className="absolute top-0 left-0 w-full flex justify-between items-center z-20 px-4 pt-4 md:px-8 md:pt-8">
-          <button className="bg-black/20 hover:bg-black/40 p-2 md:p-3 rounded-full backdrop-blur-md transition-colors">
-            <ArrowLeft size={20} className="text-white" />
-          </button>
-          <button className="bg-black/20 hover:bg-black/40 p-2 md:p-3 rounded-full backdrop-blur-md transition-colors">
-            <ArrowRight size={20} className="text-white" />
-          </button>
-        </div>
-
-        {/* Main Image */}
+      {/* 1. Large Feature Card (Left) */}
+      <div className="col-span-2 md:col-span-6 relative group overflow-hidden bg-gray-100 shadow-xl">
+        {/* Navigation Overlays */}
+       
         <img 
           src="/pickleball-image.jpg" 
-          alt="Featured Project" 
-          className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover  hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" 
+          alt="Main Project"
         />
+
+        {/* Bottom Info Label */}
+        <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent text-white translate-y-4 group-hover:translate-y-0 transition-transform">
+          <p className="text-[#C8D653] font-black uppercase text-[10px] tracking-widest mb-2">Premium Court Build</p>
+          <h4 className="text-2xl font-black uppercase tracking-tight">IKON Olympic-Spec Arena</h4>
+        </div>
       </div>
 
-      {/* Center Column Stack */}
-      {/* Mobile: col-span-1, grid-rows-2, h-48 */}
-      {/* Desktop: col-span-3, flex-col, h-full */}
-      <div className="col-span-1 md:col-span-3 grid grid-rows-2 gap-4 h-48 md:h-auto">
-        <div className="relative overflow-hidden shadow-md group rounded-sm">
+      {/* 2. Center Stack (Equal Split) */}
+      <div className="col-span-1 md:col-span-3 grid grid-rows-2 gap-3 lg:gap-4">
+        <div className="relative overflow-hidden group shadow-lg">
+          <div className="absolute inset-0 bg-[#335495]/20 group-hover:opacity-0 transition-opacity z-10"></div>
           <img 
             src="/vd.jpg" 
-            className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
-            alt="Project Detail 1"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+            alt="Detail 1"
           />
         </div>
-        <div className="relative overflow-hidden shadow-md group rounded-sm">
+        <div className="relative overflow-hidden group shadow-lg">
+          <div className="absolute inset-0 bg-[#335495]/20 group-hover:opacity-0 transition-opacity z-10"></div>
           <img 
             src="/2sd.jpg" 
-            className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
-            alt="Project Detail 2"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+            alt="Detail 2"
           />
         </div>
       </div>
 
-      {/* Right Column Stack */}
-      {/* Mobile: col-span-1, grid-rows-2, h-48 */}
-      {/* Desktop: col-span-3, flex-col, h-full */}
-      <div className="col-span-1 md:col-span-3 grid grid-rows-2 gap-4 h-48 md:h-auto">
-        {/* Top Right Image */}
-        {/* Mobile: row-span-1 */}
-        {/* Desktop: h-[40%] */}
-        <div className="relative overflow-hidden shadow-md group rounded-sm md:h-[40%]">
-           <img 
+      {/* 3. Right Stack (Asymmetrical Split 40/60) */}
+      <div className="col-span-1 md:col-span-3 flex flex-col gap-3 lg:gap-4">
+        {/* Top Image (40%) */}
+        <div className="relative overflow-hidden group shadow-lg h-[40%]">
+          <div className="absolute top-4 right-4 z-20">
+             <div className="w-8 h-8 bg-[#C8D653] flex items-center justify-center text-[#335495]">
+                <ArrowUpRight size={16} />
+             </div>
+          </div>
+          <img 
             src="/MOBILE-BANNER-1 v.jpg" 
-            className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
-            alt="Project Detail 3"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+            alt="Detail 3"
           />
         </div>
-        {/* Bottom Right Image */}
-        {/* Mobile: row-span-1 */}
-        {/* Desktop: h-[60%] */}
-        <div className="relative overflow-hidden shadow-md group rounded-sm md:h-[60%]">
+        
+        {/* Bottom Image (60%) */}
+        <div className="relative overflow-hidden group shadow-lg flex-grow">
+          {/* Ghost Number Overlay */}
+          <span className="absolute bottom-4 right-4 text-6xl font-black text-white/10 group-hover:text-[#C8D653]/20 transition-colors z-10 select-none">
+            04
+          </span>
           <img 
             src="/bg-5.jpeg" 
-            className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
-            alt="Project Detail 4"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+            alt="Detail 4"
           />
         </div>
       </div>
 
+    </div>
+
+    {/* Floating Tagline at bottom of collage */}
+    <div className="mt-8 flex flex-col md:flex-row justify-between items-center text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">
+       <p>Verified Technical Specifications</p>
+       <p className="hidden md:block">ISO 9001:2015 Construction Standards</p>
+       <p>IKON Sports Infrastructure</p>
     </div>
   </div>
 </section>

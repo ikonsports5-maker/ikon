@@ -2,12 +2,13 @@
 
 import React, { useState } from 'react';
 import { 
-  Menu, X, Phone, ChevronRight, ChevronDown, ArrowLeft, ArrowRight, 
-  Plus, Minus, Target, Activity, Star, Trophy, Zap, 
-  Users, Construction, LayoutGrid, Shield, HardHat, ClipboardCheck
+  Plus, Minus, Target, Shield, HardHat, ClipboardCheck, 
+  ArrowRight, CheckCircle2, MapPin, Phone
 } from 'lucide-react';
 import Header from '@/component/Header';
+import Footer from '@/component/Footer';
 
+// Enhanced data structure with Gallery support
 const sportsData: Record<string, {
   name: string;
   tagline: string;
@@ -164,7 +165,7 @@ const sportsData: Record<string, {
     tagline: 'designed for optimal playability, durability, and safety',
     heroImage: 'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=1600&h=600&fit=crop',
     expertiseTitle: 'Football Turf Construction India',
-    expertiseDescription: 'At ikon Sports, we deliver FIFA-standard football turf solutions designed for optimal playability, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your pitch exceeds expectations. Using cutting-edge artificial football turf from Limonta, we\'ve built 7 FIFA-quality football fields and 50+ football turfs that are reshaping how the game is played. Our commitment to quality has established us as a leader in football turf in India, helping players at every level enjoy the best playing surfaces available.',
+    expertiseDescription: 'At ikon Sports, we deliver FIFA-standard football turf solutions designed for optimal playability, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your pitch exceeds expectations. Using cutting-edge artificial football turf from , we\'ve built 7 FIFA-quality football fields and 50+ football turfs that are reshaping how the game is played. Our commitment to quality has established us as a leader in football turf in India, helping players at every level enjoy the best playing surfaces available.',
     faqs: [
       {
         question: 'Why Invest in a Football Turf?',
@@ -206,8 +207,8 @@ const sportsData: Record<string, {
         icon: 'maintenance'
       }
     ],
-    productTitle: 'Limonta Artificial Football Turf',
-    productDescription: 'Limonta products are trusted by professional clubs, schools, and recreational facilities globally, ensuring you receive the best in the industry. Our artificial football turf solutions are transforming the landscape of football in India, providing players with the best surfaces available. As an official partner of Limonta, a world leader in artificial turf technology, we deliver top-quality materials for your football field.',
+    productTitle: ' Artificial Football Turf',
+    productDescription: ' products are trusted by professional clubs, schools, and recreational facilities globally, ensuring you receive the best in the industry. Our artificial football turf solutions are transforming the landscape of football in India, providing players with the best surfaces available. As an official partner of , a world leader in artificial turf technology, we deliver top-quality materials for your football field.',
     productImage: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=600&fit=crop',
     productFeatures: [
       {
@@ -713,146 +714,227 @@ const sportsData: Record<string, {
   }
 };
 
-const servicesList = [
-  { name: 'Cricket Turf', id: 'cricket-turf' },
-  { name: 'Basketball Courts', id: 'basketball-courts' },
-  { name: 'Tennis Courts', id: 'tennis-courts' },
-  { name: 'Football Turf', id: 'football-turf' },
-  { name: 'Badminton Courts', id: 'badminton-courts' },
-  { name: 'Pickleball Courts', id: 'pickleball-courts' }
-];
-
-// --- HELPER COMPONENTS ---
-function ServiceIcon({ type }: { type: string }) {
-  const icons: any = {
-    design: <LayoutGrid className="w-12 h-12 text-[#C8D653]" />,
-    turf: <Activity className="w-12 h-12 text-[#C8D653]" />,
-    maintenance: <ClipboardCheck className="w-12 h-12 text-[#C8D653]" />,
-    certification: <Shield className="w-12 h-12 text-[#C8D653]" />
-  };
-  return icons[type] || <Construction className="w-12 h-12 text-[#C8D653]" />;
-}
+// --- SUB-COMPONENTS ---
 
 function Accordion({ title, children, defaultOpen = false }: { title: string; children: any; defaultOpen?: boolean }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   return (
-    <div className={`border rounded-sm mb-4 transition-all ${isOpen ? 'border-[#335495] shadow-md' : 'border-gray-100'}`}>
-      <button onClick={() => setIsOpen(!isOpen)} className="w-full flex items-center justify-between p-5 text-left transition-colors">
-        <span className={`text-base font-black uppercase tracking-tight ${isOpen ? 'text-[#335495]' : 'text-gray-700'}`}>{title}</span>
-        <div className={`transition-all ${isOpen ? 'text-[#C8D653]' : 'text-gray-300'}`}>
-          {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+    <div className={`border-b border-gray-100 transition-all ${isOpen ? 'bg-gray-50/50' : ''}`}>
+      <button onClick={() => setIsOpen(!isOpen)} className="w-full flex items-center justify-between py-6 text-left group">
+        <span className={`text-lg font-bold tracking-tight transition-colors ${isOpen ? 'text-[#335495]' : 'text-gray-900 group-hover:text-[#335495]'}`}>{title}</span>
+        <div className={`p-1 rounded-full transition-all ${isOpen ? 'bg-[#335495] text-white' : 'bg-gray-100 text-gray-400'}`}>
+          {isOpen ? <Minus size={16} /> : <Plus size={16} />}
         </div>
       </button>
-      {isOpen && <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">{children}</div>}
+      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[500px] opacity-100 pb-6' : 'max-h-0 opacity-0'}`}>
+        <p className="text-gray-600 leading-relaxed max-w-2xl">{children}</p>
+      </div>
     </div>
   );
 }
 
-// --- MAIN PAGE COMPONENT ---
 export default function SportPage({ params }: { params: any }) {
-  // UNWRAP THE URL ID
-  const { id }:any = React.use(params);
-  const sport = sportsData[id];
-  
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-
-  if (!sport) {
-    return (
-      <div className="h-screen flex flex-col items-center justify-center text-[#335495]">
-        <h1 className="text-4xl font-black">404: NOT FOUND</h1>
-        <p className="mt-2 text-gray-500">The sport "{id}" is not in our service catalog.</p>
-        <a href="/" className="mt-6 bg-[#335495] text-white px-6 py-2 rounded-full uppercase font-bold text-xs">Back Home</a>
-      </div>
-    );
-  }
+  const { id }: any = React.use(params);
+  const sport = sportsData[id] || sportsData['cricket-turf']; // Fallback for demo
 
   return (
-    <div className="min-h-screen bg-white font-sans text-left">
-      {/* --- HEADER (Centered Logo + Sub Dropdown) --- */}
-     <Header />
+    <div className="min-h-screen bg-white font-sans text-left selection:bg-[#C8D653] selection:text-[#335495]">
+      <Header />
 
-      {/* --- HERO --- */}
-      <div className="relative h-[55vh] flex items-center justify-center">
-        <img src={sport.heroImage} alt={sport.name} className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-[#335495]/50 backdrop-blur-[1px]"></div>
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-4">{sport.name}</h1>
-          <div className="h-2 w-24 bg-[#C8D653] mx-auto mb-6"></div>
-          <p className="text-lg md:text-xl font-bold uppercase tracking-widest opacity-90">{sport.tagline}</p>
+      {/* --- HERO SECTION --- */}
+      <section className="relative h-[85vh] lg:h-[90vh] flex items-end overflow-hidden">
+        <img src={sport.heroImage} alt={sport.name} className="absolute inset-0 w-full h-full object-cover scale-105 animate-slow-zoom" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-[#335495]/40 to-transparent"></div>
+        
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 lg:pb-24">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+                <span className="bg-[#C8D653] text-[#335495] px-3 py-1 text-xs font-black uppercase tracking-widest">ISO 9001 Certified</span>
+                <div className="h-[1px] w-12 bg-white/50"></div>
+            </div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6">
+                {sport.name.split(' ')[0]} <br/> 
+                <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1px white' }}>{sport.name.split(' ')[1]}</span>
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 font-medium max-w-xl mb-10 border-l-4 border-[#C8D653] pl-6 uppercase tracking-wide">
+                {sport.tagline}
+            </p>
+          </div>
+
+          {/* Quick Stats Bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 border-t border-white/20 pt-8">
+             <div>
+                <p className="text-[#C8D653] text-3xl font-black">{sport.stats?.completed || '500+'}</p>
+                <p className="text-white/60 text-[10px] uppercase font-bold tracking-widest mt-1">Projects Finished</p>
+             </div>
+             <div>
+                <p className="text-[#C8D653] text-3xl font-black">{sport.stats?.experience || '10+ Yrs'}</p>
+                <p className="text-white/60 text-[10px] uppercase font-bold tracking-widest mt-1">Industry Mastery</p>
+             </div>
+             <div className="hidden md:block">
+                <p className="text-[#C8D653] text-3xl font-black">24/7</p>
+                <p className="text-white/60 text-[10px] uppercase font-bold tracking-widest mt-1">Support Ready</p>
+             </div>
+             <a href="https://wa.me/917737022715?text=Hello%20IKON%20Sports%2C%20I%20am%20interested%20in%20building%20a%20sports%20court." 
+      target="_blank"  className="bg-[#C8D653] hover:bg-white text-[#335495] transition-colors flex items-center justify-center gap-2 font-black uppercase text-xs p-4">
+                Enquire Now <ArrowRight size={16} />
+             </a>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* --- EXPERTISE SECTION --- */}
-      <div className="max-w-6xl mx-auto px-4 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <div className="lg:col-span-2">
-          <div className="flex items-center space-x-3 mb-6">
-            <div className="w-12 h-1 bg-[#C8D653]"></div>
-            <span className="text-[#C8D653] font-bold uppercase tracking-[0.3em] text-xs">Technical Expertise</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-black text-[#335495] uppercase mb-8">{sport.expertiseTitle}</h2>
-          <p className="text-gray-600 leading-relaxed text-base mb-10">{sport.expertiseDescription}</p>
-          <div className="space-y-1">
-            {sport.faqs.map((faq: any, index: number) => (
-              <Accordion key={index} title={faq.question}>{faq.answer}</Accordion>
-            ))}
-          </div>
-        </div>
-        <div className="bg-gray-50 p-8 border-l-4 border-[#335495] h-fit">
-          <h3 className="text-[#335495] font-black uppercase text-sm mb-6 tracking-widest">Why IKON Sports?</h3>
-          <ul className="space-y-4 text-[10px] font-bold text-gray-600 uppercase tracking-widest">
-            <li className="flex gap-3 items-center"><Shield size={16} className="text-[#C8D653]" /> Pan-India Execution</li>
-            <li className="flex gap-3 items-center"><Target size={16} className="text-[#C8D653]" /> Turnkey Solutions</li>
-            <li className="flex gap-3 items-center"><HardHat size={16} className="text-[#C8D653]" /> International Safety Standards</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* --- SERVICES GRID --- */}
-      <div className="bg-gray-50 py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-[#335495] uppercase mb-4">What We Do</h2>
-            <div className="h-1.5 w-20 bg-[#C8D653] mx-auto"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {sport.services.map((service: any, index: number) => (
-              <div key={index} className="bg-white p-10 border-b-4 border-transparent hover:border-[#C8D653] transition-all group shadow-sm">
-                <ServiceIcon type={service.icon} />
-                <h3 className="text-[#335495] font-black uppercase text-sm mt-6 mb-3 tracking-widest">{service.title}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* --- PRODUCT & CTA --- */}
-      <div className="py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-1 bg-[#C8D653]"></div>
-              <span className="text-[#C8D653] font-bold uppercase tracking-[0.3em] text-xs">Premium Quality</span>
+      <section className="py-20 lg:py-32 max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          <div className="lg:col-span-7">
+            <h2 className="text-4xl lg:text-6xl font-black text-[#335495] uppercase leading-tight mb-8">
+                {sport.expertiseTitle}
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed mb-12">
+                {sport.expertiseDescription}
+            </p>
+            
+            <div className="space-y-2">
+              <h4 className="text-[#335495] font-black uppercase text-xs tracking-[0.2em] mb-6">Frequently Asked Questions</h4>
+              {sport.faqs.map((faq: any, index: number) => (
+                <Accordion key={index} title={faq.question}>{faq.answer}</Accordion>
+              ))}
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-[#335495] uppercase leading-none mb-8">{sport.productTitle}</h2>
-            <p className="text-gray-600 leading-relaxed mb-10">{sport.productDescription}</p>
-            {sport.productFeatures.map((f: any, i: number) => (
-              <Accordion key={i} title={f.title} defaultOpen={i === 0}>{f.description}</Accordion>
-            ))}
           </div>
-          <div className="relative group">
-            <div className="absolute -top-4 -right-4 w-32 h-32 border-t-4 border-r-4 border-[#C8D653] -z-10 transition-transform group-hover:translate-x-2 group-hover:-translate-y-2"></div>
-            <img src={sport.productImage} alt="Product Detail" className="w-full h-[500px] object-cover rounded-sm shadow-2xl transition-all" />
+
+          <div className="lg:col-span-5 sticky top-24">
+            <div className="relative p-8 bg-[#335495] text-white">
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#C8D653] flex items-center justify-center text-[#335495] font-black text-center leading-none transform rotate-12">
+                    ESTD <br/> 2010
+                </div>
+                <h3 className="text-2xl font-black uppercase mb-8 pr-12">Why IKON is India's Choice</h3>
+                <ul className="space-y-6">
+                    {[
+                        { icon: <Shield size={20}/>, t: "International Standards", d: "Materials sourced from FIFA & ICC preferred suppliers." },
+                        { icon: <Target size={20}/>, t: "Turnkey Execution", d: "From excavation to floodlighting, we handle it all." },
+                        { icon: <MapPin size={20}/>, t: "Pan-India Presence", d: "Active sites in 22+ states across the country." }
+                    ].map((item, i) => (
+                        <li key={i} className="flex gap-4">
+                            <div className="text-[#C8D653] shrink-0">{item.icon}</div>
+                            <div>
+                                <p className="font-bold uppercase text-sm tracking-wide">{item.t}</p>
+                                <p className="text-white/60 text-sm mt-1">{item.d}</p>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+                <div className="mt-10 pt-10 border-t border-white/10">
+                    <p className="text-[10px] uppercase tracking-[0.3em] text-white/40 mb-4">Official Partners</p>
+                    <div className="flex gap-6 grayscale opacity-50 contrast-125">
+                        <span className="font-black text-xl italic"></span>
+                      
+                    </div>
+                </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+    {/* --- MINIMAL SERVICES SECTION --- */}
+<section className="bg-white py-16 border-y border-gray-100">
+  <div className="max-w-7xl mx-auto px-6">
+    {/* Simple Title */}
+    <div className="mb-12">
+      <h2 className="text-xs font-black uppercase tracking-[0.4em] text-[#C8D653] mb-2">Technical Services</h2>
+      <div className="h-[1px] w-12 bg-[#335495]"></div>
+    </div>
+
+    {/* Clean, Minimal Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-12">
+      {sport.services.map((service: any, index: number) => (
+        <div key={index} className="relative group">
+          {/* Subtle Accent Line */}
+          <div className="w-6 h-[2px] bg-gray-100 group-hover:bg-[#C8D653] transition-colors mb-6"></div>
+          
+          {/* Title */}
+          <h3 className="text-lg font-black text-[#335495] uppercase tracking-tight mb-3">
+            {service.title}
+          </h3>
+          
+          {/* Short Description */}
+          <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
+            {service.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+      {/* --- GALLERY SECTION --- */}
+      {sport.gallery && (
+        <section className="py-24 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 mb-12">
+                <h3 className="text-[#335495] font-black uppercase tracking-widest text-sm">Recent Projects</h3>
+            </div>
+            <div className="flex gap-6 overflow-x-auto px-6 pb-12 snap-x no-scrollbar">
+                {sport.gallery.map((img: string, i: number) => (
+                    <div key={i} className="min-w-[300px] md:min-w-[600px] h-[400px] snap-center">
+                        <img src={img} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Work" />
+                    </div>
+                ))}
+            </div>
+        </section>
+      )}
+
+      {/* --- PRODUCT SHOWCASE --- */}
+      <section className="py-24 bg-[#1a1a1a] text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="relative">
+            <div className="absolute -top-10 -left-10 text-[200px] font-black text-white/5 leading-none select-none">PRO</div>
+            <div className="flex items-center space-x-3 mb-8">
+              <div className="w-12 h-1 bg-[#C8D653]"></div>
+              <span className="text-[#C8D653] font-bold uppercase tracking-[0.3em] text-xs">Surface Technology</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black uppercase leading-[0.9] mb-8">{sport.productTitle}</h2>
+            <p className="text-white/60 text-lg leading-relaxed mb-12">{sport.productDescription}</p>
+            
+            <div className="space-y-4">
+              {sport.productFeatures.map((f: any, i: number) => (
+                <div key={i} className="bg-white/5 p-6 border-l-2 border-[#C8D653] hover:bg-white/10 transition-colors">
+                    <h4 className="font-black uppercase text-[#C8D653] mb-2">{f.title}</h4>
+                    <p className="text-white/60 text-sm">{f.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative">
+            <div className="absolute inset-0 border-2 border-[#C8D653] translate-x-6 translate-y-6 -z-0"></div>
+            <img src={sport.productImage} alt="Product Detail" className="relative z-10 w-full lg:h-[600px] h-[400px] object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+          </div>
+        </div>
+      </section>
 
       {/* --- FOOTER --- */}
-      <footer className="bg-[#1a1a1a] text-white py-12 border-t-4 border-[#C8D653] text-center">
-        <p className="text-[#C8D653] font-black uppercase tracking-[0.3em] mb-2">IKON Sports</p>
-        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">India’s No. 1 Sports Infrastructure Company. © 2025</p>
-      </footer>
+     <Footer />
+
+      {/* Mobile Sticky CTA */}
+      <div className="fixed bottom-6 right-6 lg:hidden z-50">
+        <button className="bg-[#C8D653] text-[#335495] w-14 h-14 rounded-full shadow-2xl flex items-center justify-center animate-bounce">
+            <Phone size={24} />
+        </button>
+      </div>
+      
+      <style jsx global>{`
+        @keyframes slow-zoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        .animate-slow-zoom {
+            animation: slow-zoom 20s infinite alternate ease-in-out;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .stroke-white {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.8);
+        }
+      `}</style>
     </div>
   );
 }
