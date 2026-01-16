@@ -6,6 +6,7 @@ import {
   Send, ChevronDown, Facebook, Instagram, Linkedin 
 } from 'lucide-react';
 import Header from '@/component/Header';
+import Footer from '@/component/Footer';
 
 const ContactPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -171,37 +172,7 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* --- FOOTER --- */}
-      <footer className="bg-[#1a1a1a] text-white py-16 border-t-4 border-[#C8D653]">
-        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="space-y-6">
-            <img src="/logo.jpg" alt="Ikon Sports" className="w-20 grayscale brightness-200" />
-            <p className="text-gray-500 text-xs leading-relaxed font-medium">India’s No. 1 Sports Infrastructure Company. Expertise in turnkey design and professional execution across India.</p>
-          </div>
-          <div>
-            <h4 className="font-black uppercase text-[#C8D653] text-sm tracking-widest mb-8">Navigation</h4>
-            <ul className="space-y-4 text-xs font-bold text-gray-400 uppercase">
-              <li><a href="/" className="hover:text-white transition">Home</a></li>
-              <li><a href="/about-us" className="hover:text-white transition">About Us</a></li>
-              <li><a href="/services" className="hover:text-white transition">Services</a></li>
-              {/* <li><a href="/projects" className="hover:text-white transition">Projects</a></li> */}
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-black uppercase text-[#C8D653] text-sm tracking-widest mb-8">Follow Us</h4>
-            <div className="flex gap-4">
-               <div className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-[#335495] hover:border-transparent transition-all cursor-pointer"><Facebook size={18}/></div>
-               <div className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-[#335495] hover:border-transparent transition-all cursor-pointer"><Instagram size={18}/></div>
-               <div className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-[#335495] hover:border-transparent transition-all cursor-pointer"><Linkedin size={18}/></div>
-            </div>
-          </div>
-          <div className="bg-[#335495]/20 p-8 rounded-sm">
-            <h4 className="font-black uppercase text-white text-sm tracking-widest mb-4">India Head Office</h4>
-            <p className="text-gray-400 text-xs leading-relaxed">Contact us for PAN-India project execution and material supply.</p>
-            <p className="text-[#C8D653] font-black text-sm mt-4 tracking-widest">+91 77370 22715</p>
-          </div>
-        </div>
-      </footer>
+    <Footer />
     </div>
   );
 };

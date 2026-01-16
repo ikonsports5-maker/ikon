@@ -9,6 +9,7 @@ import Header from '@/component/Header';
 import { sanityClient } from '@/lib/sanity.client';
 import { urlFor } from '@/lib/imageUrl';
 import { PortableText } from '@portabletext/react';
+import Footer from '@/component/Footer';
 
 const BlogPage = () => {
   const [blogs, setBlogs] = useState<any[]>([]);
@@ -195,12 +196,7 @@ const BlogPage = () => {
         </div>
       )}
 
-      <footer className="bg-[#1a1a1a] text-white py-12 border-t-4 border-[#C8D653]">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-[#C8D653] font-black uppercase tracking-[0.3em] mb-2 text-sm">IKON Sports</p>
-          <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">India’s No. 1 Sports Infrastructure Company. © 2025</p>
-        </div>
-      </footer>
+     <Footer />
     </div>
   );
 };

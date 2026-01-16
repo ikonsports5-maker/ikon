@@ -3,7 +3,7 @@
 import React from 'react';
 import { ShieldCheck, Lock, Eye, FileText, Mail, Globe } from 'lucide-react';
 import Header from '@/component/Header';
-
+import Footer from '@/component/Footer';
 const PrivacyPolicy = () => {
   return (
     <div className="font-sans text-gray-800 bg-white min-h-screen">
@@ -152,10 +152,7 @@ const PrivacyPolicy = () => {
       </section>
 
       {/* --- FOOTER --- */}
-      <footer className="bg-[#1a1a1a] text-white py-12 border-t-4 border-[#C8D653] text-center">
-        <p className="text-[#C8D653] font-black uppercase tracking-[0.3em] mb-2 text-sm">IKON Sports</p>
-        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Constructing Future-Ready Sports Infrastructure Across India. © 2026</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

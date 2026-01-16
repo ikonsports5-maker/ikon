@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 import Header from '@/component/Header';
 
+import Footer from '@/component/Footer';
+
 const ServicesPage = () => {
   return (
     <div className="font-sans text-[#1a1a1a] bg-white overflow-x-hidden w-full selection:bg-[#C8D653] selection:text-[#335495]">
@@ -189,40 +191,7 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* --- FOOTER: TIGHT & CORPORATE --- */}
-      <footer className="bg-[#0f172a] text-white pt-20 pb-10 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
-            <div className="space-y-6 col-span-1 md:col-span-2">
-              <p className="text-4xl font-black text-[#C8D653] tracking-tighter uppercase leading-none">IKON <br/> SPORTS</p>
-              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.3em] max-w-xs">The gold standard in sports infrastructure across India.</p>
-              <div className="flex gap-4">
-                <Instagram size={18} className="text-gray-500 hover:text-white" />
-                <Facebook size={18} className="text-gray-500 hover:text-white" />
-                <Linkedin size={18} className="text-gray-500 hover:text-white" />
-              </div>
-            </div>
-            <div>
-              <p className="text-[#C8D653] font-black uppercase text-[10px] tracking-widest mb-6">Menu</p>
-              <ul className="space-y-3 text-[10px] font-black uppercase tracking-widest text-gray-400">
-                <li className="hover:text-white cursor-pointer transition-colors">Projects</li>
-                <li className="hover:text-white cursor-pointer transition-colors">Technical</li>
-                <li className="hover:text-white cursor-pointer transition-colors">Contact</li>
-              </ul>
-            </div>
-            <div>
-              <p className="text-[#C8D653] font-black uppercase text-[10px] tracking-widest mb-6">HQ</p>
-              <p className="text-gray-400 text-[10px] font-black uppercase tracking-widest leading-loose">
-                Corporate Park, <br/> Jaipur, India 302001
-              </p>
-            </div>
-          </div>
-          <div className="border-t border-white/5 pt-8 text-[9px] text-white/20 font-black uppercase tracking-[0.5em] text-center">
-            © 2026 IKON SPORTS INFRASTRUCTURE.
-          </div>
-        </div>
-      </footer>
-
+     <Footer />
       <style jsx global>{`
         @keyframes slow-zoom {
           0% { transform: scale(1); }
