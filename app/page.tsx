@@ -214,17 +214,10 @@ const App = () => {
                 />
 
                 {/* Video Play Button Overlay */}
-                <div 
-                  onClick={() => window.open('https://www.youtube.com/watch?v=RCwzOp-sujE', '_blank')} 
-                  className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/10 group-hover:bg-black/20 transition-colors duration-300"
-                >
-                  <div className="bg-[#C8D653] text-white w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-xl">
-                    <Play fill="currentColor" className="ml-1" size={32} />
-                  </div>
-                </div>
+              
 
                 {/* Decorative Accent (Bottom Left) */}
-                <div className="absolute bottom-0 left-0 w-2 h-24 bg-[#C8D653]"></div>
+                
               </div>
             </div>
 
