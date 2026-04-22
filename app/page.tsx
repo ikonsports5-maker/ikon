@@ -16,6 +16,176 @@ import SportsInfrastructureHero from '@/component/NewHero';
 import Header from '@/component/Header';
 import Footer from '@/component/Footer';
 
+const SurfacesSection = () => {
+  const cards = [
+    { id: 'badminton', name: 'BADMINTON', circleBg: '#EBF1FF', iconColor: '#3B82F6', lineColor: '#3B82F6', isHighlighted: false },
+    { id: 'football', name: 'FOOTBALL', circleBg: 'transparent', iconColor: '#FFFFFF', lineColor: '#FFFFFF', isHighlighted: true },
+    { id: 'tennis', name: 'TENNIS', circleBg: '#F3E8FF', iconColor: '#335495', lineColor: '#335495', isHighlighted: false },
+    { id: 'pickleball', name: 'PICKLEBALL', circleBg: '#E6F4EA', iconColor: '#335495', lineColor: '#84CC16', isHighlighted: false },
+    { id: 'basketball', name: 'BASKETBALL', circleBg: '#FFEDD5', iconColor: '#335495', lineColor: '#F97316', isHighlighted: false },
+    { id: 'squash', name: 'SQUASH', circleBg: '#E0F2FE', iconColor: '#335495', lineColor: '#06B6D4', isHighlighted: false },
+    { id: 'athletic-track', name: 'ATHLETIC TRACK', circleBg: '#F3E8FF', iconColor: '#335495', lineColor: '#8B5CF6', isHighlighted: false },
+    { id: 'cricket', name: 'CRICKET', circleBg: '#FEF3C7', iconColor: '#335495', lineColor: '#EAB308', isHighlighted: false },
+  ];
+
+  const getIcon = (id: string) => {
+    switch(id) {
+      case 'badminton':
+        return (
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+             <rect x="6" y="10" width="28" height="20" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="6" y1="14" x2="34" y2="14" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="6" y1="26" x2="34" y2="26" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="20" y1="10" x2="20" y2="30" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="12" y1="10" x2="12" y2="30" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="28" y1="10" x2="28" y2="30" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="12" y1="20" x2="28" y2="20" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
+        );
+      case 'football':
+        return (
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+             <rect x="4" y="10" width="32" height="20" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="20" y1="10" x2="20" y2="30" stroke="currentColor" strokeWidth="1.5" />
+             <circle cx="20" cy="20" r="4" stroke="currentColor" strokeWidth="1.5" />
+             <rect x="4" y="15" width="4" height="10" stroke="currentColor" strokeWidth="1.5" />
+             <rect x="32" y="15" width="4" height="10" stroke="currentColor" strokeWidth="1.5" />
+             <rect x="4" y="18" width="2" height="4" stroke="currentColor" strokeWidth="1.5" />
+             <rect x="34" y="18" width="2" height="4" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
+        );
+      case 'tennis':
+        return (
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+             <rect x="10" y="4" width="20" height="32" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="14" y1="4" x2="14" y2="36" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="26" y1="4" x2="26" y2="36" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="10" y1="20" x2="30" y2="20" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="14" y1="12" x2="26" y2="12" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="14" y1="28" x2="26" y2="28" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="20" y1="12" x2="20" y2="28" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
+        );
+      case 'pickleball':
+        return (
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+             <rect x="6" y="12" width="28" height="16" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="20" y1="12" x2="20" y2="28" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="16" y1="12" x2="16" y2="28" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="24" y1="12" x2="24" y2="28" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="6" y1="20" x2="16" y2="20" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="24" y1="20" x2="34" y2="20" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
+        );
+      case 'basketball':
+        return (
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+             <rect x="10" y="4" width="20" height="32" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="10" y1="20" x2="30" y2="20" stroke="currentColor" strokeWidth="1.5" />
+             <circle cx="20" cy="20" r="4" stroke="currentColor" strokeWidth="1.5" />
+             <rect x="16" y="4" width="8" height="6" stroke="currentColor" strokeWidth="1.5" />
+             <path d="M12 4 C12 14, 28 14, 28 4" stroke="currentColor" strokeWidth="1.5" fill="none" />
+             <rect x="16" y="30" width="8" height="6" stroke="currentColor" strokeWidth="1.5" />
+             <path d="M12 36 C12 26, 28 26, 28 36" stroke="currentColor" strokeWidth="1.5" fill="none" />
+          </svg>
+        );
+      case 'squash':
+        return (
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+             <rect x="10" y="6" width="20" height="28" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="10" y1="20" x2="30" y2="20" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="20" y1="20" x2="20" y2="34" stroke="currentColor" strokeWidth="1.5" />
+             <rect x="10" y="20" width="4" height="4" stroke="currentColor" strokeWidth="1.5" />
+             <rect x="26" y="20" width="4" height="4" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
+        );
+      case 'athletic-track':
+        return (
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+             <rect x="8" y="6" width="24" height="28" rx="12" stroke="currentColor" strokeWidth="1.5" />
+             <rect x="12" y="10" width="16" height="20" rx="8" stroke="currentColor" strokeWidth="1.5" />
+             <rect x="16" y="14" width="8" height="12" rx="4" stroke="currentColor" strokeWidth="1.5" />
+             <line x1="8" y1="20" x2="12" y2="20" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
+        );
+      case 'cricket':
+        return (
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+             <circle cx="20" cy="20" r="14" stroke="currentColor" strokeWidth="1.5" />
+             <circle cx="20" cy="20" r="10" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
+             <rect x="18" y="12" width="4" height="16" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
+        );
+      default: return null;
+    }
+  };
+
+  return (
+    <section className="py-16 md:py-24 relative bg-gradient-to-br from-[#F8FAFC] to-[#F1F5F9] overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-[500px] md:w-[800px] h-[500px] md:h-[800px] bg-[#EBF1FF] rounded-full blur-[80px] md:blur-[100px] opacity-70 -translate-y-1/2 translate-x-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-[#F3E8FF] rounded-full blur-[80px] md:blur-[100px] opacity-70 translate-y-1/3 -translate-x-1/4"></div>
+      <div className="absolute bottom-10 left-10 w-32 h-32 opacity-20" style={{ backgroundImage: 'radial-gradient(#9ca3af 2px, transparent 2px)', backgroundSize: '16px 16px' }}></div>
+
+      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+          
+          {/* Left Text */}
+          <div className="lg:w-[35%] text-left">
+            <p className="text-[#F26E41] font-bold text-xs md:text-sm uppercase tracking-[0.2em] mb-4">Surfaces</p>
+            <div className="w-12 h-[3px] bg-[#F26E41] mb-6"></div>
+            <h2 className="text-4xl md:text-5xl lg:text-[52px] font-black text-[#1A1F2C] leading-[1.1] mb-6 tracking-tight">
+              Deeper than<br/>the Surface
+            </h2>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8 max-w-sm">
+              Our team has the experience and know how to install varied sports surfaces to meet international standards.
+            </p>
+            <a href="/surfaces" className="inline-flex items-center text-[#F26E41] font-bold text-xs uppercase tracking-widest hover:text-[#d35a2e] transition-colors group">
+              Explore Surfaces 
+              <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+          </div>
+
+          {/* Right Grid */}
+          <div className="lg:w-[65%]">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+              {cards.map((card) => (
+                <div 
+                  key={card.id} 
+                  className={`relative flex flex-col items-center justify-center p-6 rounded-2xl transition-all duration-300 ${
+                    card.isHighlighted 
+                      ? 'bg-[#2563EB] text-white shadow-xl scale-[1.02] md:scale-105 z-10' 
+                      : 'bg-white text-[#1A1F2C] shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1'
+                  }`}
+                >
+                  <div 
+                    className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
+                    style={{ backgroundColor: card.circleBg, color: card.iconColor }}
+                  >
+                    {getIcon(card.id)}
+                  </div>
+                  <h3 className="text-[11px] md:text-xs font-bold uppercase tracking-widest text-center mb-3">
+                    {card.name}
+                  </h3>
+                  <div 
+                    className="w-4 h-[3px] rounded-full" 
+                    style={{ backgroundColor: card.lineColor }}
+                  ></div>
+
+                  {card.isHighlighted && (
+                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[12px] border-l-transparent border-t-[12px] border-t-[#2563EB] border-r-[12px] border-r-transparent"></div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
@@ -710,6 +880,8 @@ const App = () => {
         </div>
       </section>
 
+
+      <SurfacesSection />
 
      <Footer />
     </div>

@@ -6,6 +6,7 @@ const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const servicesList = [
+    { name: 'Gym', id: 'gym' },
     { name: 'Cricket Turf', id: 'cricket-turf' },
     { name: 'Basketball Courts', id: 'basketball-courts' },
     { name: 'Tennis Courts', id: 'tennis-courts' },
@@ -13,14 +14,14 @@ const Header = () => {
     { name: 'Badminton Courts', id: 'badminton-courts' },
     { name: 'Pickleball Courts', id: 'pickleball-courts' },
     { name: 'Padel Courts', id: 'padel-courts' },
-    
+
   ];
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
-          
+
           {/* 1. Desktop Left Navigation */}
           <nav className="hidden md:flex flex-1 items-center justify-end space-x-8 font-semibold text-xs lg:text-sm text-[#335495]">
             <a href="/" className="hover:text-[#C8D653] transition tracking-widest">HOME</a>
@@ -31,19 +32,19 @@ const Header = () => {
           {/* 2. Centered Logo */}
           <div className="flex-shrink-0 mx-4 md:mx-20">
             <a href="/">
-              <img 
-                src="/logo.jpg" 
-                alt="Ikon Sports" 
-                className="w-14 h-14 md:w-16 md:h-16 object-contain hover:scale-105 transition-transform duration-300" 
+              <img
+                src="/logo.jpg"
+                alt="Ikon Sports"
+                className="w-14 h-14 md:w-16 md:h-16 object-contain hover:scale-105 transition-transform duration-300"
               />
             </a>
           </div>
 
           {/* 3. Desktop Right Navigation */}
           <nav className="hidden md:flex flex-1 items-center justify-start space-x-8 font-semibold text-xs lg:text-sm text-[#335495]">
-            
+
             {/* SERVICES DROPDOWN BLOCK */}
-            <div 
+            <div
               className="relative py-4"
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
@@ -60,9 +61,9 @@ const Header = () => {
               <div className={`absolute left-0 mt-2 w-56 bg-white shadow-2xl border-t-2 border-[#C8D653] transition-all duration-300 ${isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-4'}`}>
                 <div className="py-2">
                   {servicesList.map((service) => (
-                    <a 
+                    <a
                       key={service.id}
-                      href={`/services/${service.id}`}
+                      href={service.id === 'gym' ? '/gym' : `/services/${service.id}`}
                       className="block px-6 py-3 text-[#335495] hover:bg-gray-50 hover:text-[#C8D653] font-bold text-[11px] tracking-wider uppercase border-b border-gray-50 last:border-0"
                     >
                       {service.name}
@@ -98,7 +99,7 @@ const Header = () => {
         <div className="md:hidden bg-white border-t p-6 flex flex-col space-y-4 font-bold text-[#335495] shadow-2xl absolute w-full z-50 h-screen overflow-y-auto">
           <a href="/" className="pb-2 border-b border-gray-100" onClick={() => setIsMenuOpen(false)}>HOME</a>
           <a href="/about-us" className="pb-2 border-b border-gray-100" onClick={() => setIsMenuOpen(false)}>ABOUT US</a>
-          
+
           {/* Mobile Services Accordion */}
           <div className="flex flex-col">
             <div className="flex justify-between items-center pb-2 border-b border-gray-100">
@@ -109,13 +110,13 @@ const Header = () => {
                 <ChevronDown size={20} className={`transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
               </button>
             </div>
-            
+
             {isServicesOpen && (
               <div className="bg-gray-50 flex flex-col pl-4">
                 {servicesList.map((service) => (
-                  <a 
-                    key={service.id} 
-                    href={`/services/${service.id}`}
+                  <a
+                    key={service.id}
+                    href={service.id === 'gym' ? '/gym' : `/services/${service.id}`}
                     className="py-3 text-[11px] border-b border-white last:border-0 uppercase tracking-widest"
                     onClick={() => setIsMenuOpen(false)}
                   >
