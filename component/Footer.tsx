@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Facebook, Instagram, Linkedin } from 'lucide-react'
+import { Facebook, Instagram } from 'lucide-react'
 
 function Footer() {
   return (
@@ -32,9 +32,12 @@ function Footer() {
            <div>
             <h4 className="font-bold text-[#C8D653] uppercase mb-4">Follow Us</h4>
             <div className="flex justify-center md:justify-start space-x-4">
-               <Facebook className="hover:text-[#C8D653] cursor-pointer" />
-               <Instagram className="hover:text-[#C8D653] cursor-pointer" />
-               <Linkedin className="hover:text-[#C8D653] cursor-pointer" />
+               <a href="https://www.facebook.com/profile.php?id=61585385491388" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                 <Facebook className="hover:text-[#C8D653] cursor-pointer" />
+               </a>
+               <a href="https://www.instagram.com/ikonsports.infra?igsh=MTZ1b3MwcjV2cnF0OA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                 <Instagram className="hover:text-[#C8D653] cursor-pointer" />
+               </a>
             </div>
           </div>
         </div>
