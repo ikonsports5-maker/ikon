@@ -15,6 +15,8 @@ import {  ArrowLeft, ArrowRight, Phone } from 'lucide-react';
 import SportsInfrastructureHero from '@/component/NewHero';
 import Header from '@/component/Header';
 import Footer from '@/component/Footer';
+import { sanityClient } from '@/lib/sanity.client';
+import { urlFor } from '@/lib/imageUrl';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,10 +41,11 @@ const App = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   
+  // Desktop art is 16:9, mobile art is 4:5 portrait — served via <picture> below.
   const heroImages = [
-    "/2sd.jpg",
-    "/MOBILE-BANNER.jpg", 
-    "/vd.jpg"
+    { desktop: "/hero-1.jpeg", mobile: "/hero-mobile-1.jpeg" },
+    { desktop: "/hero-2.jpeg", mobile: "/hero-mobile-2.jpeg" },
+    { desktop: "/hero-3.jpeg", mobile: "/hero-mobile-3.jpeg" }
   ];
 
   useEffect(() => {
@@ -50,6 +53,52 @@ const App = () => {
       setCurrentSlide((prev) => (prev + 1) % heroImages.length);
     }, 5000); // Changes every 5 seconds
     return () => clearInterval(timer);
+  }, []);
+
+  // --- PORTFOLIO SHOWCASE (from Sanity) ---
+  // The collage below has exactly 5 slots, so we only pull 5 projects.
+  // Featured projects come first, then the most recent ones.
+  const PORTFOLIO_SLOTS = 5;
+
+  const portfolioFallbacks = [
+    { img: "/pickleball-image.jpg", title: "IKON Olympic-Spec Arena", type: "Premium Court Build" },
+    { img: "/vd.jpg", title: "Sports Court Project", type: "Turnkey Execution" },
+    { img: "/2sd.jpg", title: "Sports Court Project", type: "Turnkey Execution" },
+    { img: "/MOBILE-BANNER-1 v.jpg", title: "Sports Court Project", type: "Turnkey Execution" },
+    { img: "/bg-5.jpeg", title: "Sports Court Project", type: "Turnkey Execution" }
+  ];
+
+  type PortfolioItem = { img: string; title: string; type: string; slug?: string };
+  const [portfolio, setPortfolio] = useState<PortfolioItem[]>(portfolioFallbacks);
+
+  useEffect(() => {
+    const fetchPortfolio = async () => {
+      try {
+        const query = `*[_type == "project" && defined(heroImage)]
+          | order(featured desc, _createdAt desc)[0...${PORTFOLIO_SLOTS}]{
+            _id, title, typeOfProject, heroImage, "slug": slug.current
+          }`;
+        const data = await sanityClient.fetch(query);
+        if (!data?.length) return;
+
+        // Keep the collage full: fill any empty slot with the original static image.
+        setPortfolio(
+          portfolioFallbacks.map((fallback, i) => {
+            const project = data[i];
+            if (!project) return fallback;
+            return {
+              img: urlFor(project.heroImage).width(1200).quality(80).url(),
+              title: project.title || fallback.title,
+              type: project.typeOfProject || fallback.type,
+              slug: project.slug
+            };
+          })
+        );
+      } catch (error) {
+        console.error("Sanity portfolio fetch error:", error);
+      }
+    };
+    fetchPortfolio();
   }, []);
 
   return (
@@ -85,7 +134,8 @@ const App = () => {
       </div> */}
 
       {/* --- HERO SECTION --- */}
-    <div className="relative w-full h-[550px] md:h-[600px] bg-gray-200 overflow-hidden">
+    {/* Container matches the art's ratio at each breakpoint (4:5 mobile, 16:9 desktop) so nothing gets cropped */}
+    <div className="relative w-full aspect-[4/5] md:aspect-[16/9] bg-gray-200 overflow-hidden">
         {/* --- AUTO-SCROLLING BACKGROUND --- */}
         <div className="absolute inset-0 z-0">
           {heroImages.map((img, index) => (
@@ -95,11 +145,14 @@ const App = () => {
                 index === currentSlide ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              <img 
-                src={img} 
-                alt={`Slide ${index}`} 
-                className="w-full h-full object-cover" 
-              />
+              <picture>
+                <source media="(min-width: 768px)" srcSet={img.desktop} />
+                <img
+                  src={img.mobile}
+                  alt={`Slide ${index}`}
+                  className="w-full h-full object-cover"
+                />
+              </picture>
             </div>
           ))}
           {/* Dark Overlay for Readability of bottom text */}
@@ -143,7 +196,7 @@ const App = () => {
             {/* Right Column: Details & CTA */}
             <div className="w-full md:w-1/2 space-y-6">
               <p className="text-xl md:text-2xl font-bold text-[#335495] leading-tight">
-                7+ Years Experience | Pan-India Turnkey Execution | 400+ Courts Delivered
+                10+ Years Experience | Pan-India Turnkey Execution | 1000+ Courts Delivered
               </p>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-xl">
                 We design, build and deliver high-performance sports courts for schools, academies, clubs, townships and commercial projects across India.
@@ -173,7 +226,7 @@ const App = () => {
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-center text-center relative z-10">
           
           <div className="order-2 md:order-1">
-            <h3 className="text-4xl md:text-5xl font-black text-[#335495]">400+</h3>
+            <h3 className="text-4xl md:text-5xl font-black text-[#335495]">1000+</h3>
             <p className="text-xs font-bold tracking-widest mt-2 uppercase text-gray-800">Sports Courts<br/>Delivered</p>
           </div>
 
@@ -185,7 +238,7 @@ const App = () => {
                    WebkitTextFillColor: 'transparent',
                    backgroundPosition: 'center'
                  }}>
-              7+
+              10+
             </div>
             <p className="text-sm font-bold uppercase tracking-[0.3em] text-gray-800 -mt-2 md:-mt-4 bg-white px-4">Years of Experience</p>
           </div>
@@ -232,7 +285,7 @@ const App = () => {
 
               <div className="space-y-6 text-gray-600">
                 <p className="text-xl font-bold text-[#335495] leading-tight">
-                  IKON is a Pan-India sports courts infrastructure company with over 7 years of experience.
+                  IKON is a Pan-India sports courts infrastructure company with over 10 years of experience.
                 </p>
                 
                 <p className="text-sm md:text-base leading-relaxed">
@@ -245,7 +298,7 @@ const App = () => {
 
                 <div className="flex items-center space-x-4 pt-4">
                    <div className="text-[#335495]">
-                      <div className="text-2xl font-black leading-none">400+</div>
+                      <div className="text-2xl font-black leading-none">1000+</div>
                       <div className="text-[10px] uppercase font-bold tracking-tighter opacity-70">Courts Delivered</div>
                    </div>
                    <div className="h-8 w-px bg-gray-200"></div>
@@ -394,72 +447,77 @@ const App = () => {
     <div className="grid grid-cols-2 md:grid-cols-12 gap-3 lg:gap-4 h-auto md:h-[700px]">
       
       {/* 1. Large Feature Card (Left) */}
-      <div className="col-span-2 md:col-span-6 relative group overflow-hidden bg-gray-100 shadow-xl">
+      <a href="/projects" className="col-span-2 md:col-span-6 relative group overflow-hidden bg-gray-100 shadow-xl block">
         {/* Navigation Overlays */}
-       
-        <img 
-          src="/pickleball-image.jpg" 
-          className="w-full h-full object-cover  hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" 
-          alt="Main Project"
+
+        <img
+          src={portfolio[0].img}
+          className="w-full h-full object-cover  hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+          alt={portfolio[0].title}
         />
 
         {/* Bottom Info Label */}
         <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent text-white translate-y-4 group-hover:translate-y-0 transition-transform">
-          <p className="text-[#C8D653] font-black uppercase text-[10px] tracking-widest mb-2">Premium Court Build</p>
-          <h4 className="text-2xl font-black uppercase tracking-tight">IKON Olympic-Spec Arena</h4>
+          <p className="text-[#C8D653] font-black uppercase text-[10px] tracking-widest mb-2">{portfolio[0].type}</p>
+          <h4 className="text-2xl font-black uppercase tracking-tight">{portfolio[0].title}</h4>
         </div>
-      </div>
+      </a>
 
       {/* 2. Center Stack (Equal Split) */}
       <div className="col-span-1 md:col-span-3 grid grid-rows-2 gap-3 lg:gap-4">
-        <div className="relative overflow-hidden group shadow-lg">
-          <div className="absolute inset-0 bg-[#335495]/20 group-hover:opacity-0 transition-opacity z-10"></div>
-          <img 
-            src="/vd.jpg" 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-            alt="Detail 1"
-          />
-        </div>
-        <div className="relative overflow-hidden group shadow-lg">
-          <div className="absolute inset-0 bg-[#335495]/20 group-hover:opacity-0 transition-opacity z-10"></div>
-          <img 
-            src="/2sd.jpg" 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-            alt="Detail 2"
-          />
-        </div>
+        {[portfolio[1], portfolio[2]].map((item, i) => (
+          <a href="/projects" key={i} className="relative overflow-hidden group shadow-lg block">
+            <div className="absolute inset-0 bg-[#335495]/20 group-hover:opacity-0 transition-opacity z-10"></div>
+            <img
+              src={item.img}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              alt={item.title}
+            />
+          </a>
+        ))}
       </div>
 
       {/* 3. Right Stack (Asymmetrical Split 40/60) */}
       <div className="col-span-1 md:col-span-3 flex flex-col gap-3 lg:gap-4">
         {/* Top Image (40%) */}
-        <div className="relative overflow-hidden group shadow-lg h-[40%]">
+        <a href="/projects" className="relative overflow-hidden group shadow-lg h-[40%] block">
           <div className="absolute top-4 right-4 z-20">
              <div className="w-8 h-8 bg-[#C8D653] flex items-center justify-center text-[#335495]">
                 <ArrowUpRight size={16} />
              </div>
           </div>
-          <img 
-            src="/MOBILE-BANNER-1 v.jpg" 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-            alt="Detail 3"
+          <img
+            src={portfolio[3].img}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            alt={portfolio[3].title}
           />
-        </div>
-        
+        </a>
+
         {/* Bottom Image (60%) */}
-        <div className="relative overflow-hidden group shadow-lg flex-grow">
+        <a href="/projects" className="relative overflow-hidden group shadow-lg flex-grow block">
           {/* Ghost Number Overlay */}
           <span className="absolute bottom-4 right-4 text-6xl font-black text-white/10 group-hover:text-[#C8D653]/20 transition-colors z-10 select-none">
             04
           </span>
-          <img 
-            src="/bg-5.jpeg" 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-            alt="Detail 4"
+          <img
+            src={portfolio[4].img}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            alt={portfolio[4].title}
           />
-        </div>
+        </a>
       </div>
 
+    </div>
+
+    {/* Show Portfolio CTA */}
+    <div className="mt-12 flex justify-center">
+      <a
+        href="/projects"
+        className="group inline-flex items-center gap-3 bg-[#335495] text-white px-12 py-4 text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-900 transition-all shadow-lg"
+      >
+        Show Portfolio
+        <ArrowUpRight size={16} className="text-[#C8D653] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+      </a>
     </div>
 
     {/* Floating Tagline at bottom of collage */}
@@ -673,7 +731,7 @@ const App = () => {
     {/* Bottom Trust Note */}
     <div className="mt-16 text-center">
       <p className="text-[#335495] font-bold uppercase text-xs tracking-[0.4em] opacity-50">
-        400+ Successful Projects Across India
+        1000+ Successful Projects Across India
       </p>
     </div>
   </div>

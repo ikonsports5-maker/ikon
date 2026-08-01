@@ -752,7 +752,7 @@ export default function SportPage({ params }: { params: any }) {
           {/* Quick Stats Bar */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 border-t border-white/20 pt-8">
              <div>
-                <p className="text-[#C8D653] text-3xl font-black">{sport.stats?.completed || '500+'}</p>
+                <p className="text-[#C8D653] text-3xl font-black">{sport.stats?.completed || '1000+'}</p>
                 <p className="text-white/60 text-[10px] uppercase font-bold tracking-widest mt-1">Projects Finished</p>
              </div>
              <div>
@@ -793,7 +793,7 @@ export default function SportPage({ params }: { params: any }) {
           <div className="lg:col-span-5 sticky top-24">
             <div className="relative p-8 bg-[#335495] text-white">
                 <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#C8D653] flex items-center justify-center text-[#335495] font-black text-center leading-none transform rotate-12">
-                    ESTD <br/> 2010
+                    ESTD <br/> 2017
                 </div>
                 <h3 className="text-2xl font-black uppercase mb-8 pr-12">Why IKON is India's Choice</h3>
                 <ul className="space-y-6">

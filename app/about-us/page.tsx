@@ -27,7 +27,7 @@ const AboutUs = () => {
           <div className="flex flex-col lg:flex-row lg:items-center gap-10">
             <div className="max-w-4xl">
               <span className="inline-block bg-[#C8D653] text-[#335495] px-4 py-1 font-black uppercase text-[10px] tracking-[0.4em] mb-6">
-                Established 2018
+                Established 2017
               </span>
               <h1 className="text-6xl md:text-8xl lg:text-[140px] font-black text-white uppercase tracking-tighter leading-[0.8] mb-8">
                 Building <br/>
@@ -61,7 +61,7 @@ const AboutUs = () => {
               </div>
               {/* Floating Stat Box */}
               <div className="absolute -bottom-10 -left-6 lg:-left-12 bg-[#335495] text-white p-10 z-20 shadow-2xl">
-                <p className="text-6xl font-black text-[#C8D653] mb-2 tracking-tighter">400+</p>
+                <p className="text-6xl font-black text-[#C8D653] mb-2 tracking-tighter">1000+</p>
                 <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-60 leading-tight">Projects <br/> Executed</p>
               </div>
             </div>

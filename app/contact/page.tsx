@@ -21,6 +21,7 @@ const ContactPage = () => {
   });
 
   const servicesList = [
+    { name: 'Gym', id: 'gym' },
     { name: 'Cricket Turf', id: 'cricket-turf' },
     { name: 'Basketball Courts', id: 'basketball-courts' },
     { name: 'Tennis Courts', id: 'tennis-courts' },
