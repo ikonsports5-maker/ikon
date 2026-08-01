@@ -164,8 +164,9 @@ const App = () => {
         
         {/* --- BOTTOM RIGHT CAPTION & INDICATORS --- */}
         <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-20 text-right text-white drop-shadow-md">
-            <h3 className="text-sm md:text-xl font-bold leading-none">Our Project</h3>
-            <p className="text-xs md:text-sm font-medium opacity-90">Pan-India Execution</p>
+            {/* Caption is desktop-only — kept off the mobile art */}
+            <h3 className="hidden md:block text-sm md:text-xl font-bold leading-none">Our Project</h3>
+            <p className="hidden md:block text-xs md:text-sm font-medium opacity-90">Pan-India Execution</p>
             {/* Slide Indicators */}
             <div className="flex justify-end space-x-2 mt-2">
               {heroImages.map((_, i) => (
