@@ -634,7 +634,7 @@ const sportsData: any = {
   'swimming-pools': {
     name: 'Swimming Pools',
     tagline: 'designed for optimal performance, durability, and safety',
-    heroImage: 'https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=1600&h=600&fit=crop',
+    heroImage: 'https://images.unsplash.com/photo-1560090995-01632a28895b?w=1600&h=600&fit=crop',
     expertiseTitle: 'Swimming Pool Construction India',
     expertiseDescription: 'At ikon Sports, we deliver Olympic-standard swimming pool solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, or recreational facilities, our expertise ensures your pool exceeds expectations. Using advanced filtration, water treatment, and construction technologies, we\'ve built numerous swimming pools across India. Our commitment to quality has established us as a leader in swimming pool construction in India.',
     faqs: [
