@@ -350,12 +350,12 @@ const App = () => {
       <div className="lg:w-2/3">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {[
-            { id: "pickleball-courts", title: "Pickleball Courts", desc: "Professional layouts & surfaces", img: "/player1.png" },
+            { id: "pickleball-courts", title: "Pickleball Courts", desc: "Professional layouts & surfaces", img: "/pickle.jpeg" },
             { id: "tennis-courts", title: "Tennis Courts", desc: "Multi-layer acrylic systems", img: "https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?q=80&w=800&auto=format&fit=crop" },
-            { id: "basketball-courts", title: "Basketball Courts", desc: "Shock-absorbent floors", img: "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=800&auto=format&fit=crop" },
+            { id: "basketball-courts", title: "Basketball Courts", desc: "Shock-absorbent floors", img: "/basketball.jpeg" },
             { id: "badminton-courts", title: "Badminton Courts", desc: "Synthetic & Wood flooring", img: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=1000&h=600&fit=crop" },
-            { id: "cricket-turf", title: "Cricket Turf", desc: "Practice nets & pitches", img: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=800&auto=format&fit=crop" },
-            { id: "football-turf", title: "Football Turf", desc: "Heavy-duty Turfs", img: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=1600&h=600&fit=crop" }
+            { id: "cricket-turf", title: "Cricket Turf", desc: "Practice nets & pitches", img: "/cricket.jpeg" },
+            { id: "football-turf", title: "Football Turf", desc: "Heavy-duty Turfs", img: "/football.jpeg" }
           ].map((service, index) => (
           <a 
     href={`/services/${service.id}`} // This handles the navigation

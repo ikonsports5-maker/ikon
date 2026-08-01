@@ -24,3 +24,93 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/*
+ * Styling for raw HTML pasted into a blog post from the CMS.
+ * Tailwind's reset removes default element styling, so these rules give
+ * pasted markup the same look as the rest of the article.
+ */
+.blog-html table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 15px;
+}
+.blog-html th {
+  background: #335495;
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+  padding: 14px 20px;
+  white-space: nowrap;
+}
+.blog-html td {
+  padding: 14px 20px;
+  border-top: 1px solid #f1f1f1;
+  color: #374151;
+  vertical-align: top;
+}
+.blog-html tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
+.blog-html h1,
+.blog-html h2,
+.blog-html h3,
+.blog-html h4 {
+  color: #335495;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 2rem 0 1rem;
+}
+.blog-html h1 { font-size: 2rem; }
+.blog-html h2 { font-size: 1.6rem; }
+.blog-html h3 { font-size: 1.3rem; }
+.blog-html h4 { font-size: 1.05rem; }
+.blog-html p {
+  margin-bottom: 1.5rem;
+  line-height: 1.9;
+  color: #374151;
+  font-size: 17px;
+}
+.blog-html ul,
+.blog-html ol {
+  margin: 0 0 1.5rem 1.25rem;
+  color: #374151;
+  font-size: 17px;
+  line-height: 1.8;
+}
+.blog-html ul { list-style: disc; }
+.blog-html ol { list-style: decimal; }
+.blog-html li { margin-bottom: 0.5rem; }
+.blog-html a {
+  color: #335495;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: #c8d653;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+.blog-html strong { font-weight: 900; color: #335495; }
+.blog-html img { max-width: 100%; height: auto; }
+.blog-html iframe { max-width: 100%; }
+.blog-html blockquote {
+  border-left: 4px solid #c8d653;
+  background: #f8f9fa;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-weight: 700;
+  color: #335495;
+}
+.blog-html pre {
+  background: #1a1a1a;
+  color: #f5f5f5;
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-size: 14px;
+  margin-bottom: 1.5rem;
+}

@@ -21,7 +21,7 @@ const GymServicesPage = () => {
             <section className="relative h-[60vh] md:h-[70vh] flex items-center overflow-hidden bg-slate-900">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
+                        src="/gym.jpeg"
                         alt="Gym Infrastructure"
                         className="w-full h-full object-cover opacity-50"
                     />
@@ -93,7 +93,7 @@ const GymServicesPage = () => {
                         <div className="lg:w-1/2 relative">
                             <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#C8D653]/20 z-0"></div>
                             <img
-                                src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=2070&auto=format&fit=crop"
+                                src="/gym.jpeg"
                                 className="relative z-10 w-full h-[500px] object-cover shadow-2xl rounded-sm"
                                 alt="Indoor Gym"
                             />

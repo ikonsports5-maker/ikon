@@ -13,7 +13,7 @@ const sportsData: any = {
   'cricket-turf': {
     name: 'Cricket Turf',
     tagline: 'designed for optimal performance, durability, and safety',
-    heroImage: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2000&auto=format&fit=crop',
+    heroImage: '/cricket.jpeg',
     expertiseTitle: 'Cricket Turf Construction India',
     expertiseDescription: 'At ikon Sports, we deliver ICC-standard cricket turf solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your pitch exceeds expectations. Using cutting-edge artificial cricket turf from international suppliers, we\'ve built 50+ cricket fields and 200+ cricket turfs that are reshaping how the game is played. Our commitment to quality has established us as a leader in cricket turf in India, helping players at every level enjoy the best playing surfaces available.',
     faqs: [
@@ -59,7 +59,7 @@ const sportsData: any = {
     ],
     productTitle: 'Premium Artificial Cricket Turf',
     productDescription: 'Our products are trusted by professional clubs, schools, and recreational facilities globally, ensuring you receive the best in the industry. Our artificial cricket turf solutions are transforming the landscape of cricket in India, providing players with the best surfaces available. As an official partner of leading manufacturers, we deliver top-quality materials for your cricket field.',
-    productImage: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2000&auto=format&fit=crop',
+    productImage: '/cricket.jpeg',
     productFeatures: [
       {
         title: 'High-Performance Turf Systems',
@@ -151,7 +151,7 @@ const sportsData: any = {
   'football-turf': {
     name: 'Football Turf',
     tagline: 'designed for optimal playability, durability, and safety',
-    heroImage: 'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=1600&h=600&fit=crop',
+    heroImage: '/football.jpeg',
     expertiseTitle: 'Football Turf Construction India',
     expertiseDescription: 'At ikon Sports, we deliver FIFA-standard football turf solutions designed for optimal playability, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your pitch exceeds expectations. Using cutting-edge artificial football turf from , we\'ve built 7 FIFA-quality football fields and 50+ football turfs that are reshaping how the game is played. Our commitment to quality has established us as a leader in football turf in India, helping players at every level enjoy the best playing surfaces available.',
     faqs: [
@@ -197,7 +197,7 @@ const sportsData: any = {
     ],
     productTitle: ' Artificial Football Turf',
     productDescription: ' products are trusted by professional clubs, schools, and recreational facilities globally, ensuring you receive the best in the industry. Our artificial football turf solutions are transforming the landscape of football in India, providing players with the best surfaces available. As an official partner of , a world leader in artificial turf technology, we deliver top-quality materials for your football field.',
-    productImage: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=600&fit=crop',
+    productImage: '/football.jpeg',
     productFeatures: [
       {
         title: 'High-Performance Turf Systems',
@@ -220,7 +220,7 @@ const sportsData: any = {
   'basketball-courts': {
     name: 'Basketball Courts',
     tagline: 'designed for optimal performance, durability, and safety',
-    heroImage: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2000&auto=format&fit=crop',
+    heroImage: '/basketball.jpeg',
     expertiseTitle: 'Basketball Court Construction India',
     expertiseDescription: 'At ikon Sports, we deliver FIBA-standard basketball court solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your court exceeds expectations. Using cutting-edge basketball court surfaces from leading suppliers, we\'ve built numerous basketball courts that provide exceptional playing conditions. Our commitment to quality has established us as a leader in basketball court construction in India.',
     faqs: [
@@ -266,7 +266,7 @@ const sportsData: any = {
     ],
     productTitle: 'Professional Basketball Court Surfaces',
     productDescription: 'Our basketball court products are trusted by professional clubs, schools, and recreational facilities, ensuring you receive the best in the industry. Our solutions provide players with world-class playing surfaces that meet international standards.',
-    productImage: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2000&auto=format&fit=crop',
+    productImage: '/basketball.jpeg',
     productFeatures: [
       {
         title: 'High-Performance Surface Systems',
@@ -358,7 +358,7 @@ const sportsData: any = {
   'pickleball-courts': {
     name: 'Pickleball Courts',
     tagline: 'designed for optimal playability, durability, and safety',
-    heroImage: '/player1.png',
+    heroImage: '/pickle.jpeg',
     expertiseTitle: 'Pickleball Court Construction India',
     expertiseDescription: 'At ikon Sports, we deliver USAPA-standard pickleball court solutions designed for optimal playability, durability, and safety. Whether for professional clubs, schools, or recreational grounds, our expertise ensures your court exceeds expectations. Using cutting-edge pickleball court surfaces, we\'ve built numerous pickleball courts that are introducing this rapidly growing sport across India. Our commitment to quality has established us as a leader in pickleball court construction in India.',
     faqs: [
@@ -404,7 +404,7 @@ const sportsData: any = {
     ],
     productTitle: 'Professional Pickleball Court Surfaces',
     productDescription: 'Our pickleball court products are trusted by clubs and recreational facilities, ensuring you receive the best in the industry. Our solutions provide players with world-class playing surfaces that meet USAPA standards.',
-    productImage: '/player1.png',
+    productImage: '/pickle.jpeg',
     productFeatures: [
       {
         title: 'High-Performance Surface Systems',
@@ -427,7 +427,7 @@ const sportsData: any = {
   'padel-courts': {
     name: 'Padel Courts',
     tagline: 'designed for optimal playability, durability, and safety',
-    heroImage: 'https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?w=1600&h=600&fit=crop',
+    heroImage: '/paddle.jpeg',
     expertiseTitle: 'Padel Court Construction India',
     expertiseDescription: 'At ikon Sports, we deliver International Padel Federation standard padel court solutions designed for optimal playability, durability, and safety. Whether for professional clubs or recreational grounds, our expertise ensures your court exceeds expectations. Using premium padel court materials including tempered glass walls and synthetic grass, we\'re introducing this exciting sport across India. Our commitment to quality has established us as a leader in padel court construction in India.',
     faqs: [
@@ -473,7 +473,7 @@ const sportsData: any = {
     ],
     productTitle: 'Professional Padel Court Systems',
     productDescription: 'Our padel court products include tempered glass walls, metal mesh panels, and premium synthetic grass, ensuring you receive the best in the industry. Our solutions provide players with world-class playing facilities.',
-    productImage: 'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=800&h=600&fit=crop',
+    productImage: '/paddle.jpeg',
     productFeatures: [
       {
         title: 'High-Performance Court Systems',
@@ -496,7 +496,7 @@ const sportsData: any = {
   'squash-courts': {
     name: 'Squash Courts',
     tagline: 'designed for optimal performance, durability, and safety',
-    heroImage: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&h=600&fit=crop',
+    heroImage: '/squash.jpeg',
     expertiseTitle: 'Squash Court Construction India',
     expertiseDescription: 'At ikon Sports, we deliver WSF-standard squash court solutions designed for optimal performance, durability, and safety. Whether for professional clubs or recreational facilities, our expertise ensures your court exceeds expectations. Using premium squash court materials including wall panels and hardwood flooring, we\'ve built numerous squash courts across India. Our commitment to quality has established us as a leader in squash court construction in India.',
     faqs: [
@@ -542,7 +542,7 @@ const sportsData: any = {
     ],
     productTitle: 'Professional Squash Court Systems',
     productDescription: 'Our squash court products include high-quality wall panels, hardwood flooring, and glass back walls, ensuring you receive the best in the industry. Our solutions provide players with world-class playing facilities that meet WSF standards.',
-    productImage: 'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?w=800&h=600&fit=crop',
+    productImage: '/squash.jpeg',
     productFeatures: [
       {
         title: 'High-Performance Wall Systems',
@@ -565,7 +565,7 @@ const sportsData: any = {
   'athletic-tracks': {
     name: 'Athletic Tracks',
     tagline: 'designed for optimal performance, durability, and safety',
-    heroImage: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1600&h=600&fit=crop',
+    heroImage: '/atheletic.jpeg',
     expertiseTitle: 'Athletic Track Construction India',
     expertiseDescription: 'At ikon Sports, we deliver World Athletics certified running track solutions designed for optimal performance, durability, and safety. Whether for schools, universities, or sports complexes, our expertise ensures your track exceeds expectations. Using cutting-edge polyurethane and rubber surfaces, we\'ve built numerous athletic tracks across India. Our commitment to quality has established us as a leader in athletic track construction in India.',
     faqs: [
@@ -611,7 +611,7 @@ const sportsData: any = {
     ],
     productTitle: 'Professional Athletic Track Surfaces',
     productDescription: 'Our athletic track products are trusted by schools, universities, and sports complexes, ensuring you receive the best in the industry. Our solutions provide athletes with world-class running surfaces that meet World Athletics standards.',
-    productImage: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?w=800&h=600&fit=crop',
+    productImage: '/atheletic.jpeg',
     productFeatures: [
       {
         title: 'High-Performance Surface Systems',
@@ -634,7 +634,7 @@ const sportsData: any = {
   'swimming-pools': {
     name: 'Swimming Pools',
     tagline: 'designed for optimal performance, durability, and safety',
-    heroImage: 'https://images.unsplash.com/photo-1560090995-01632a28895b?w=1600&h=600&fit=crop',
+    heroImage: '/swimming.jpeg',
     expertiseTitle: 'Swimming Pool Construction India',
     expertiseDescription: 'At ikon Sports, we deliver Olympic-standard swimming pool solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, or recreational facilities, our expertise ensures your pool exceeds expectations. Using advanced filtration, water treatment, and construction technologies, we\'ve built numerous swimming pools across India. Our commitment to quality has established us as a leader in swimming pool construction in India.',
     faqs: [
@@ -680,7 +680,7 @@ const sportsData: any = {
     ],
     productTitle: 'Professional Swimming Pool Systems',
     productDescription: 'Our swimming pool products include advanced filtration systems, automated water treatment, energy-efficient heating, and safety features, ensuring you receive the best in the industry. Our solutions provide swimmers with world-class facilities.',
-    productImage: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&h=600&fit=crop',
+    productImage: '/swimming.jpeg',
     productFeatures: [
       {
         title: 'Advanced Filtration Systems',

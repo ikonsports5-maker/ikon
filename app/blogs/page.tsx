@@ -166,7 +166,7 @@ const BlogPage = () => {
           <img
             src={urlFor(value).url()}
             alt={value?.alt || 'Blog detail'}
-            className="shadow-xl w-full object-cover border-l-4 border-[#C8D653]"
+            className="shadow-xl w-full h-auto border-l-4 border-[#C8D653]"
           />
           {value?.caption && (
             <figcaption className="mt-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">
@@ -175,6 +175,75 @@ const BlogPage = () => {
           )}
         </figure>
       ),
+      table: ({ value }: any) => {
+        const rows: any[] = value?.rows || [];
+        if (!rows.length) return null;
+        const hasHeader = value?.hasHeaderRow !== false;
+        const headRow = hasHeader ? rows[0] : null;
+        const bodyRows = hasHeader ? rows.slice(1) : rows;
+
+        return (
+          <figure className="my-12">
+            {/* Wide tables scroll inside their own box instead of breaking the page */}
+            <div className="overflow-x-auto border border-gray-100">
+              <table className="w-full border-collapse text-left text-sm md:text-base">
+                {headRow && (
+                  <thead>
+                    <tr className="bg-[#335495] text-white">
+                      {(headRow.cells || []).map((cell: string, i: number) => (
+                        <th
+                          key={i}
+                          className="px-5 py-4 font-black uppercase text-[11px] tracking-widest whitespace-nowrap"
+                        >
+                          {cell}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                )}
+                <tbody>
+                  {bodyRows.map((row: any, r: number) => (
+                    <tr key={row._key || r} className={r % 2 ? 'bg-[#f8f9fa]' : 'bg-white'}>
+                      {(row.cells || []).map((cell: string, c: number) => (
+                        <td
+                          key={c}
+                          className={`px-5 py-4 align-top border-t border-gray-100 text-gray-700 ${
+                            c === 0 ? 'font-bold text-[#335495]' : ''
+                          }`}
+                        >
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            {value?.caption && (
+              <figcaption className="mt-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                {value.caption}
+              </figcaption>
+            )}
+          </figure>
+        );
+      },
+      htmlEmbed: ({ value }: any) => {
+        if (!value?.html) return null;
+        return (
+          <figure className="my-12">
+            {/* Rendered verbatim from the CMS — see `blog-html` styles in globals.css */}
+            <div
+              className="blog-html overflow-x-auto"
+              dangerouslySetInnerHTML={{ __html: value.html }}
+            />
+            {value?.caption && (
+              <figcaption className="mt-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                {value.caption}
+              </figcaption>
+            )}
+          </figure>
+        );
+      },
     },
   };
 

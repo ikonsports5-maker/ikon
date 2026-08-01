@@ -8,17 +8,17 @@ import Footer from '@/component/Footer';
 // Every service we have a dedicated page for. `href` handles Gym living
 // outside the /services/[id] route.
 const services = [
-  { name: 'Gym', id: 'gym', href: '/gym', desc: 'Heavy-duty rubber & commercial flooring', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop' },
-  { name: 'Cricket Turf', id: 'cricket-turf', desc: 'Practice nets, pitches & full-size fields', img: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=800&auto=format&fit=crop' },
-  { name: 'Basketball Courts', id: 'basketball-courts', desc: 'Shock-absorbent multi-layer floors', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=800&auto=format&fit=crop' },
+  { name: 'Gym', id: 'gym', href: '/gym', desc: 'Heavy-duty rubber & commercial flooring', img: '/gym.jpeg' },
+  { name: 'Cricket Turf', id: 'cricket-turf', desc: 'Practice nets, pitches & full-size fields', img: '/cricket.jpeg' },
+  { name: 'Basketball Courts', id: 'basketball-courts', desc: 'Shock-absorbent multi-layer floors', img: '/basketball.jpeg' },
   { name: 'Tennis Courts', id: 'tennis-courts', desc: 'Multi-layer acrylic systems', img: 'https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?q=80&w=800&auto=format&fit=crop' },
-  { name: 'Football Turf', id: 'football-turf', desc: 'FIFA-quality heavy-duty turfs', img: 'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?q=80&w=800&auto=format&fit=crop' },
+  { name: 'Football Turf', id: 'football-turf', desc: 'FIFA-quality heavy-duty turfs', img: '/football.jpeg' },
   { name: 'Badminton Courts', id: 'badminton-courts', desc: 'Synthetic & wooden flooring', img: 'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=800&auto=format&fit=crop' },
-  { name: 'Pickleball Courts', id: 'pickleball-courts', desc: 'Accurate layouts & durable surfaces', img: '/player1.png' },
-  { name: 'Padel Courts', id: 'padel-courts', desc: 'Glass-wall panoramic structures', img: '/player1.png' },
-  { name: 'Squash Courts', id: 'squash-courts', desc: 'WSF-standard panels & hardwood', img: 'https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?q=80&w=800&auto=format&fit=crop' },
-  { name: 'Athletic Tracks', id: 'athletic-tracks', desc: 'World Athletics certified surfaces', img: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=800&auto=format&fit=crop' },
-  { name: 'Swimming Pools', id: 'swimming-pools', desc: 'Turnkey pool construction & finishing', img: 'https://images.unsplash.com/photo-1560090995-01632a28895b?q=80&w=800&auto=format&fit=crop' },
+  { name: 'Pickleball Courts', id: 'pickleball-courts', desc: 'Accurate layouts & durable surfaces', img: '/pickle.jpeg' },
+  { name: 'Padel Courts', id: 'padel-courts', desc: 'Glass-wall panoramic structures', img: '/paddle.jpeg' },
+  { name: 'Squash Courts', id: 'squash-courts', desc: 'WSF-standard panels & hardwood', img: '/squash.jpeg' },
+  { name: 'Athletic Tracks', id: 'athletic-tracks', desc: 'World Athletics certified surfaces', img: '/atheletic.jpeg' },
+  { name: 'Swimming Pools', id: 'swimming-pools', desc: 'Turnkey pool construction & finishing', img: '/swimming.jpeg' },
 ];
 
 const ServicesPage = () => {
