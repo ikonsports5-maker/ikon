@@ -372,7 +372,7 @@ const App = () => {
     <div className="flex flex-col lg:flex-row gap-5">
       
       {/* Left Column: Heading & Summary */}
-      <div className="lg:px-12 px-2 ">
+      <div className="lg:px-12 px-2 lg:mt-64">
         <div className="sticky top-32">
           <h2 className="text-4xl md:text-5xl font-black text-[#335495] uppercase leading-[0.9] mb-6">
             What <br/> <span className="text-[#C8D653]">We Do</span>
