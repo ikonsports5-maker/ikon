@@ -159,8 +159,8 @@ const App = () => {
       </div> */}
 
       {/* --- HERO SECTION --- */}
-    {/* Container matches the art's ratio at each breakpoint (4:5 mobile, 16:9 desktop) so nothing gets cropped */}
-    <div className="relative w-full aspect-[4/5] md:aspect-[16/9] bg-gray-200 overflow-hidden">
+    {/* Container matches the art's ratio at each breakpoint (4:5 mobile, ultra-wide banner desktop) so nothing gets cropped */}
+    <div className="relative w-full aspect-[4/5] md:aspect-[2400/970] bg-gray-200 overflow-hidden">
         {/* --- AUTO-SCROLLING BACKGROUND --- */}
         <div className="absolute inset-0 z-0">
           {/* Desktop slides — own counter, only rendered/animated at md+ */}
