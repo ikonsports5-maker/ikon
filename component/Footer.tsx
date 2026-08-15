@@ -35,7 +35,7 @@ function Footer() {
                <a href="https://www.facebook.com/profile.php?id=61585385491388" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                  <Facebook className="hover:text-[#C8D653] cursor-pointer" />
                </a>
-               <a href="https://www.instagram.com/ikonsports.infra?igsh=MTZ1b3MwcjV2cnF0OA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+               <a href="https://www.instagram.com/ikonsportsinfra?igsh=em93a2ZzbnVwdHB6" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                  <Instagram className="hover:text-[#C8D653] cursor-pointer" />
                </a>
             </div>

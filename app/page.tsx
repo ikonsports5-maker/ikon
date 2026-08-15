@@ -50,7 +50,8 @@ const App = () => {
     "/hero-basketball-banner.jpeg",
     "/hero-pvc-badminton.jpeg",
     "/hero-tennis-desktop.jpeg",
-    "/hero-pickleball.jpeg"
+    "/hero-pickleball.jpeg",
+    "/hero-cricket-turf.jpeg"
   ];
 
   const mobileHeroImages = [
@@ -58,7 +59,8 @@ const App = () => {
     "/hero-mobile-2.jpeg",
     "/hero-pvc-badminton-mobile.jpeg",
     "/hero-wooden-basketball.jpeg",
-    "/hero-tennis-mobile.jpeg"
+    "/hero-tennis-mobile.jpeg",
+    "/hero-cricket-turf-mobile.jpeg"
   ];
 
   // Desktop and mobile carousels advance on separate timers/counters — with
@@ -397,7 +399,9 @@ const App = () => {
             { id: "basketball-courts", title: "Basketball Courts", desc: "Shock-absorbent floors", img: "/basketball.jpeg" },
             { id: "badminton-courts", title: "Badminton Courts", desc: "Synthetic & Wood flooring", img: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=1000&h=600&fit=crop" },
             { id: "cricket-turf", title: "Cricket Turf", desc: "Practice nets & pitches", img: "/cricket.jpeg" },
-            { id: "football-turf", title: "Football Turf", desc: "Heavy-duty Turfs", img: "/football.jpeg" }
+            { id: "football-turf", title: "Football Turf", desc: "Heavy-duty Turfs", img: "/football.jpeg" },
+            { id: "athletic-tracks", title: "Athletic Tracks", desc: "World Athletics certified surfaces", img: "/atheletic.jpeg" },
+            { id: "skating-track", title: "Skating Track", desc: "Smooth, durable rink surfaces", img: "/skating.jpg" }
           ].map((service, index) => (
           <a 
     href={`/services/${service.id}`} // This handles the navigation

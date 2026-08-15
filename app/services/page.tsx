@@ -18,6 +18,7 @@ const services = [
   { name: 'Padel Courts', id: 'padel-courts', desc: 'Glass-wall panoramic structures', img: '/paddle.jpeg' },
   { name: 'Squash Courts', id: 'squash-courts', desc: 'WSF-standard panels & hardwood', img: '/squash.jpeg' },
   { name: 'Athletic Tracks', id: 'athletic-tracks', desc: 'World Athletics certified surfaces', img: '/atheletic.jpeg' },
+  { name: 'Skating Track', id: 'skating-track', desc: 'Smooth, durable rink surfaces', img: '/skating.jpg' },
   { name: 'Swimming Pools', id: 'swimming-pools', desc: 'Turnkey pool construction & finishing', img: '/swimming.jpeg' },
 ];
 

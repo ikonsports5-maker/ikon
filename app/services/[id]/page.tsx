@@ -631,6 +631,75 @@ const sportsData: any = {
       }
     ]
   },
+  'skating-track': {
+    name: 'Skating Track',
+    tagline: 'designed for optimal performance, durability, and safety',
+    heroImage: '/skating.jpg',
+    expertiseTitle: 'Skating Track Construction India',
+    expertiseDescription: 'At ikon Sports, we deliver premium skating track solutions designed for optimal performance, durability, and safety. Whether for professional clubs, schools, residential societies, or recreational parks, our expertise ensures your skating rink exceeds expectations. Using smooth, low-friction synthetic surfaces built for both inline and roller skating, we\'ve built skating tracks that provide exceptional gliding conditions in all weather. Our commitment to quality has established us as a leader in skating track construction in India, helping skaters of every level enjoy consistently smooth, durable surfaces.',
+    faqs: [
+      {
+        question: 'Why Invest in a Skating Track?',
+        answer: 'Skating tracks provide a dedicated, safe surface for inline and roller skating, attract families and young athletes, and add significant recreational value to residential societies, schools, and sports complexes.'
+      },
+      {
+        question: 'Why Choose a Professional Synthetic Skating Surface?',
+        answer: 'Professional synthetic skating surfaces offer a consistently smooth, low-friction glide, excellent weather resistance, and much lower maintenance than concrete or asphalt, while reducing injury risk from falls.'
+      },
+      {
+        question: 'What Dimensions Do You Need?',
+        answer: 'Skating tracks are commonly built as an oval circuit of 100-200 meters, though we design custom layouts — from compact rinks to competition-length tracks — based on your available space and requirements.'
+      }
+    ],
+    services: [
+      {
+        title: 'Design & Consultation',
+        description: 'Custom track layouts optimized for your site and usage needs.',
+        icon: 'design'
+      },
+      {
+        title: 'Earthworks & Preparation',
+        description: 'Ground leveling, drainage installation, and base preparation for durability.',
+        icon: 'earthwork'
+      },
+      {
+        title: 'Surface Installation',
+        description: 'Professional installation of premium low-friction synthetic skating surfaces, ensuring a seamless, smooth finish.',
+        icon: 'turf'
+      },
+      {
+        title: 'Safety Railing & Boundary Work',
+        description: 'Installation of boundary railings and safety edging for skater protection.',
+        icon: 'certification'
+      },
+      {
+        title: 'Post-Installation Maintenance',
+        description: 'Maintenance packages to keep your track performing at its best.',
+        icon: 'maintenance'
+      }
+    ],
+    productTitle: 'Premium Skating Track Surfaces',
+    productDescription: 'Our skating track products are trusted by clubs, schools, and residential communities, ensuring you receive the best in the industry. Our synthetic skating surfaces are transforming recreational infrastructure in India, giving skaters of all ages a smooth, safe, and durable surface to train and play on.',
+    productImage: '/skating.jpg',
+    productFeatures: [
+      {
+        title: 'Low-Friction Glide Surface',
+        description: 'Engineered synthetic coating providing a consistently smooth, fast glide for skaters of all levels.'
+      },
+      {
+        title: 'Durability and Longevity',
+        description: 'UV-stabilized, weather-resistant materials ensuring years of optimal performance outdoors or indoors.'
+      },
+      {
+        title: 'Safe and Comfortable',
+        description: 'Slip-resistant finish and shock-absorbing base reduce fall impact and injury risk.'
+      },
+      {
+        title: 'Low Maintenance',
+        description: 'Minimal upkeep required compared to concrete or asphalt rinks, saving time and costs.'
+      }
+    ]
+  },
   'swimming-pools': {
     name: 'Swimming Pools',
     tagline: 'designed for optimal performance, durability, and safety',
