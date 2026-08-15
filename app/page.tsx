@@ -42,15 +42,40 @@ const App = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   // Desktop art is 16:9, mobile art is 4:5 portrait — served via <picture> below.
-  const heroImages = [
-    { desktop: "/hero-1.jpeg", mobile: "/hero-mobile-1.jpeg" },
-    { desktop: "/hero-2.jpeg", mobile: "/hero-mobile-2.jpeg" },
-    { desktop: "/hero-3.jpeg", mobile: "/hero-mobile-3.jpeg" }
+  // Each breakpoint only uses images pre-cropped to its own ratio (avoids
+  // object-cover chopping the sides off wide banners or the top/bottom off portraits).
+  // Desktop and mobile run independent slide lists (different counts), each
+  // cycling on its own length via currentSlide % list.length.
+  const desktopHeroImages = [
+    "/hero-basketball-banner.jpeg",
+    "/hero-pvc-badminton.jpeg",
+    "/hero-tennis-desktop.jpeg",
+    "/hero-pickleball.jpeg"
   ];
+
+  const mobileHeroImages = [
+    "/hero-mobile-1.jpeg",
+    "/hero-mobile-2.jpeg",
+    "/hero-pvc-badminton-mobile.jpeg",
+    "/hero-wooden-basketball.jpeg",
+    "/hero-tennis-mobile.jpeg"
+  ];
+
+  // Desktop and mobile carousels advance on separate timers/counters — with
+  // different image counts (4 vs 5), sharing one index made them occasionally
+  // repeat the same image two ticks in a row, which looked "stuck".
+  const [currentMobileSlide, setCurrentMobileSlide] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+      setCurrentSlide((prev) => (prev + 1) % desktopHeroImages.length);
+    }, 5000); // Changes every 5 seconds
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentMobileSlide((prev) => (prev + 1) % mobileHeroImages.length);
     }, 5000); // Changes every 5 seconds
     return () => clearInterval(timer);
   }, []);
@@ -138,23 +163,32 @@ const App = () => {
     <div className="relative w-full aspect-[4/5] md:aspect-[16/9] bg-gray-200 overflow-hidden">
         {/* --- AUTO-SCROLLING BACKGROUND --- */}
         <div className="absolute inset-0 z-0">
-          {heroImages.map((img, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                index === currentSlide ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              <picture>
-                <source media="(min-width: 768px)" srcSet={img.desktop} />
-                <img
-                  src={img.mobile}
-                  alt={`Slide ${index}`}
-                  className="w-full h-full object-cover"
-                />
-              </picture>
-            </div>
-          ))}
+          {/* Desktop slides — own counter, only rendered/animated at md+ */}
+          <div className="hidden md:block absolute inset-0">
+            {desktopHeroImages.map((src, index) => (
+              <img
+                key={src}
+                src={src}
+                alt={`Slide ${index}`}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                  index === currentSlide ? 'opacity-100' : 'opacity-0'
+                }`}
+              />
+            ))}
+          </div>
+          {/* Mobile slides — own counter, only rendered/animated below md */}
+          <div className="md:hidden absolute inset-0">
+            {mobileHeroImages.map((src, index) => (
+              <img
+                key={src}
+                src={src}
+                alt={`Slide ${index}`}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                  index === currentMobileSlide ? 'opacity-100' : 'opacity-0'
+                }`}
+              />
+            ))}
+          </div>
           {/* Dark Overlay for Readability of bottom text */}
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
@@ -168,11 +202,19 @@ const App = () => {
             <h3 className="hidden md:block text-sm md:text-xl font-bold leading-none">Our Project</h3>
             <p className="hidden md:block text-xs md:text-sm font-medium opacity-90">Pan-India Execution</p>
             {/* Slide Indicators */}
-            <div className="flex justify-end space-x-2 mt-2">
-              {heroImages.map((_, i) => (
-                <div 
-                  key={i} 
+            <div className="hidden md:flex justify-end space-x-2 mt-2">
+              {desktopHeroImages.map((_, i) => (
+                <div
+                  key={i}
                   className={`h-1 w-4 transition-all ${i === currentSlide ? 'bg-[#C8D653] w-8' : 'bg-white/50'}`}
+                />
+              ))}
+            </div>
+            <div className="flex md:hidden justify-end space-x-2 mt-2">
+              {mobileHeroImages.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-1 w-4 transition-all ${i === currentMobileSlide ? 'bg-[#C8D653] w-8' : 'bg-white/50'}`}
                 />
               ))}
             </div>
@@ -261,9 +303,9 @@ const App = () => {
             <div className="order-1">
               <div className="relative rounded-sm overflow-hidden shadow-2xl bg-gray-100 group">
                 {/* Main Image */}
-                <img 
-                  src="/MOBILE-BANNER-1 v.jpg" 
-                  alt="IKON Sports Construction" 
+                <img
+                  src="/about-us.png"
+                  alt="IKON Sports Construction"
                   className="w-full h-64 md:h-[450px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
@@ -534,13 +576,16 @@ const App = () => {
       <section className="py-16 md:py-20 bg-white text-center">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-2xl md:text-3xl font-black text-[#335495] uppercase mb-6 md:mb-8">
-            IKON: Your Trusted Partner in Sports Tennis Court Installation and Maintenance
+            IKON: Your Trusted Partner in Sports Infrastructure
           </h2>
           <p className="text-gray-500 text-sm md:text-md font-medium mb-6 leading-relaxed">
-            IKON is the first and fastest manufacturing and installation company that provides a perfect innovative solution for the world of sport. We create ideal clubs and sports facilities. The IKON progress consists in quality and commitment to our customers; we also aim at being a great innovation company.
+            IKON Sports is a pan-India sports infrastructure and club-building company delivering complete solutions for sports courts, turfs, flooring and civil works. From planning and construction to professional installation, we create high-quality sports facilities built for performance and long-term use.
+          </p>
+          <p className="text-gray-500 text-sm md:text-md font-medium mb-6 leading-relaxed">
+            We build Pickleball, Tennis, Basketball, Cricket and Football facilities, along with sports flooring, gym installations, civil works and complete sports club infrastructure.
           </p>
           <p className="text-gray-500 text-sm md:text-md font-medium mb-10 leading-relaxed">
-            Our courts transform the exhilarating game into an unforgettable experience, whether it's for professional play or community leisure.
+            With quality workmanship, reliable execution and on-time delivery, IKON Sports brings your sports facility vision to life—across India.
           </p>
           <a href="https://wa.me/917737022715?text=Hello%20IKON%20Sports%2C%20I%20am%20interested%20in%20building%20a%20sports%20court." className="bg-[#335495] text-white px-12 py-3 text-xs font-bold uppercase hover:bg-blue-800 transition rounded-sm shadow-md">
             Call Us Today
@@ -568,9 +613,9 @@ const App = () => {
       {/* --- EXECUTION PROCESS --- */}
       <section className="grid  grid-cols-1 md:grid-cols-2 h-auto">
          <div className="h-56 md:h-auto order-2 md:order-1 relative">
-           <img 
-            src="/vd.jpg" 
-            alt="Turnkey Execution Process" 
+           <img
+            src="/execution-process.png"
+            alt="Turnkey Execution Process"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-[#335495]/40 mix-blend-multiply"></div>
