@@ -287,7 +287,7 @@ const App = () => {
           </div>
 
           <div className="order-3">
-            <h3 className="text-4xl md:text-5xl font-black text-[#335495]">200+</h3>
+            <h3 className="text-4xl md:text-5xl font-black text-[#335495]">800+</h3>
             <p className="text-xs font-bold tracking-widest mt-2 uppercase text-gray-800">Clients<br/>Across India</p>
           </div>
 
