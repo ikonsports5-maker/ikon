@@ -401,7 +401,8 @@ const App = () => {
             { id: "cricket-turf", title: "Cricket Turf", desc: "Practice nets & pitches", img: "/cricket.jpeg" },
             { id: "football-turf", title: "Football Turf", desc: "Heavy-duty Turfs", img: "/football.jpeg" },
             { id: "athletic-tracks", title: "Athletic Tracks", desc: "World Athletics certified surfaces", img: "/atheletic.jpeg" },
-            { id: "skating-track", title: "Skating Track", desc: "Smooth, durable rink surfaces", img: "/skating.jpg" }
+            { id: "skating-track", title: "Skating Track", desc: "Smooth, durable rink surfaces", img: "/skating.jpg" },
+            { id: "pp-tiles", title: "PP Tiles", desc: "Interlocking modular sports flooring", img: "/pp.jpeg" }
           ].map((service, index) => (
           <a 
     href={`/services/${service.id}`} // This handles the navigation

@@ -700,6 +700,70 @@ const sportsData: any = {
       }
     ]
   },
+  'pp-tiles': {
+    name: 'PP Tiles',
+    tagline: 'Durable, modular sports flooring engineered for performance, safety and everyday play.',
+    heroImage: '/pp.jpeg',
+    expertiseTitle: 'Built For Performance',
+    expertiseDescription: 'PP tiles provide a durable and low-maintenance surface for modern sports courts and recreational spaces. Durable, weather resistant, low maintenance, quick installation — ideal for Basketball Courts, Multi-Sport Courts, Badminton Areas, Schools & Clubs, and Recreational Spaces. Available in multiple colours — red, green, blue, grey, orange, purple, yellow and more — create your court in the colour combination that fits your space.',
+    faqs: [
+      {
+        question: 'Where Are PP Tiles Ideal For?',
+        answer: 'Basketball Courts, Multi-Sport Courts, Badminton Areas, Schools & Clubs, and Recreational Spaces — PP tiles adapt to almost any indoor or outdoor sports setting.'
+      },
+      {
+        question: 'What Colour Options Are Available?',
+        answer: 'PP tiles are available in red, green, blue, grey, orange, purple, yellow and more — create your court in the colour combination that fits your space.'
+      },
+      {
+        question: 'Why Choose PP Tiles?',
+        answer: 'Durable, weather resistant, low maintenance and quick to install — PP tiles are built for performance, safety and everyday play.'
+      }
+    ],
+    services: [
+      {
+        title: 'Site Inspection',
+        description: 'Assessing the surface and project requirements.',
+        icon: 'design'
+      },
+      {
+        title: 'Base Preparation',
+        description: 'Preparing a stable and level foundation.',
+        icon: 'earthwork'
+      },
+      {
+        title: 'Tile Installation',
+        description: 'Precision interlocking of PP tiles.',
+        icon: 'turf'
+      },
+      {
+        title: 'Finishing',
+        description: 'Edge finishing and professional court line marking.',
+        icon: 'maintenance'
+      }
+    ],
+    productTitle: 'Build Your Court With Confidence',
+    productDescription: 'Professional PP tile installation with quality materials and precise execution. Our modular flooring solutions are trusted by schools, clubs, and residential societies, transforming how quickly and affordably multi-purpose courts can be built across India.',
+    productImage: '/pp.jpeg',
+    productFeatures: [
+      {
+        title: 'Modular System',
+        description: 'Easy installation and replacement.'
+      },
+      {
+        title: 'High Durability',
+        description: 'Built for regular sports activity.'
+      },
+      {
+        title: 'Weather Resistant',
+        description: 'Suitable for demanding environments.'
+      },
+      {
+        title: 'Low Maintenance',
+        description: 'Easy to clean and maintain.'
+      }
+    ]
+  },
   'swimming-pools': {
     name: 'Swimming Pools',
     tagline: 'designed for optimal performance, durability, and safety',
