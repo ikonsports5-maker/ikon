@@ -32,13 +32,39 @@ const ContactPage = () => {
     { name: 'Squash Courts', id: 'squash-courts' },
   ];
 
-  // WhatsApp Redirect Logic
-  const handleSubmit = (e:any) => {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [error, setError] = useState('');
+
+  // Emails the enquiry to us first, then hands off to WhatsApp so the lead is
+  // captured even if the visitor never presses send in WhatsApp.
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
-    
+    if (status === 'sending') return;
+
+    setStatus('sending');
+    setError('');
+
+    // The email is best-effort: if it fails we still hand off to WhatsApp so the
+    // enquiry is never lost. Failures are logged server-side.
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, source: 'Contact page' }),
+      });
+      const result = await res.json().catch(() => ({ ok: false }));
+      if (!res.ok || !result.ok) {
+        console.error('[contact] lead email failed:', result.error);
+      }
+    } catch (err) {
+      console.error('[contact] lead email request failed:', err);
+    }
+
+    setStatus('sent');
+
     const whatsappNumber = "917737022715";
     const text = `Hello IKON Sports,%0a%0a*New Inquiry*%0a*Name:* ${formData.name}%0a*Phone:* ${formData.phone}%0a*Service:* ${formData.service}%0a*Message:* ${formData.message}`;
-    
+
     window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
   };
 
@@ -154,15 +180,26 @@ const ContactPage = () => {
                   </div>
 
                   <div className="md:col-span-2 pt-4">
-                    <button 
+                    {error ? (
+                      <p className="mb-4 bg-red-50 text-red-600 text-[11px] font-bold uppercase tracking-widest text-center py-3">
+                        {error}
+                      </p>
+                    ) : null}
+                    {status === 'sent' ? (
+                      <p className="mb-4 bg-[#C8D653]/20 text-[#335495] text-[11px] font-bold uppercase tracking-widest text-center py-3">
+                        Thank you — we&apos;ve received your enquiry and will be in touch within 24 hours.
+                      </p>
+                    ) : null}
+                    <button
                       type="submit"
-                      className="w-full bg-[#335495] text-white py-5 px-4 font-black uppercase tracking-[0.2em] text-xs hover:bg-[#C8D653] hover:text-[#335495] transition-all shadow-lg flex items-center justify-center gap-3 group"
+                      disabled={status === 'sending'}
+                      className="w-full bg-[#335495] text-white py-5 px-4 font-black uppercase tracking-[0.2em] text-xs hover:bg-[#C8D653] hover:text-[#335495] transition-all shadow-lg flex items-center justify-center gap-3 group disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Send Inquiry via WhatsApp
+                      {status === 'sending' ? 'Sending…' : 'Send Inquiry'}
                       <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </button>
                     <p className="text-[10px] text-gray-400 mt-4 text-center font-bold uppercase tracking-widest">
-                      *By clicking send, you will be redirected to WhatsApp to chat with our team.
+                      *We&apos;ll email our team and open WhatsApp so you can chat with us right away.
                     </p>
                   </div>
                 </form>
